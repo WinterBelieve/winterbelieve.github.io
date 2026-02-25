@@ -323,18 +323,18 @@ const content = {
       summary: "Since the first semester of my master's program, I have continuously served as a TA in AI, medical, and interdisciplinary courses.",
       instructorLabel: "Instructor",
       items: [
-        { term: "M.S. Year 1 Spring", course: "Data Mining", audience: "AI Program, Junior Undergraduate", instructor: "Prof. Su, Feng-Wen" },
-        { term: "M.S. Year 2 Fall", course: "Introduction to Intelligent Computing", audience: "Department of AI, Freshman", instructor: "Chair Prof. Lin, Kuei-Chieh (Founding Dean), Dist. Prof. Hsu, Yung-Chen" },
-        { term: "M.S. Year 2 Fall", course: "Programming Languages and Their Medical Applications", audience: "School of Medicine and School of Chinese Medicine", instructor: "Postdoctoral Researcher Pai, Ssu-Yun" },
-        { term: "M.S. Year 2 Spring", course: "Deep Learning (English-taught, Joint Master's/PhD)", audience: "AI Master's Program and AI Track in Clinical Medical Sciences PhD Program", instructor: "Prof. Wang, Yu-Chung" },
-        { term: "PhD Year 1 Fall", course: "Deep Learning", audience: "AI Program, Junior Undergraduate", instructor: "Prof. Wang, Yu-Chung" },
-        { term: "PhD Year 1 Spring", course: "Deep Learning (English-taught, Joint Master's/PhD)", audience: "AI Master's Program and AI Track in Clinical Medical Sciences PhD Program", instructor: "Chair Prof. Lin, Kuei-Chieh" },
-        { term: "PhD Year 2 Fall", course: "Generative Artificial Intelligence (English-taught, Joint Master's/PhD)", audience: "AI Master's Program and AI Track in Clinical Medical Sciences PhD Program", instructor: "Dean Hsu, Yung-Chen" },
-        { term: "PhD Year 2 Fall", course: "Introduction to Intelligent Methods", audience: "AI Track in Clinical Medical Sciences PhD Program and Institute of Health Data", instructor: "Chair Prof. Lin, Kuei-Chieh" },
-        { term: "PhD Year 2 Fall", course: "Introduction to Intelligent Computing Technologies (English-taught)", audience: "AI Master's Program", instructor: "Chair Prof. Lin, Kuei-Chieh" },
+        { term: "M.S. Year 1 Spring", course: "Data Mining", audience: "AI Program, Junior Undergraduate", instructor: "Prof. Von-Wun Soo" },
+        { term: "M.S. Year 2 Fall", course: "Introduction to Intelligent Computing", audience: "Department of AI, Freshman", instructor: "Chair Prof. Kwei-Jay Lin (Founding Dean), Dist. Prof. Jane Yung-Jen Hsu" },
+        { term: "M.S. Year 2 Fall", course: "Programming Language for Medical Applications", audience: "School of Medicine and School of Chinese Medicine", instructor: "Postdoctoral Researcher Ssu-Yun Pai" },
+        { term: "M.S. Year 2 Spring", course: "Deep Learning (English-taught, Joint Master's/PhD)", audience: "AI Master's Program and Divison of AI in Clinical Medical Sciences PhD Program", instructor: "Prof. Yu-Chung Wang" },
+        { term: "PhD Year 1 Fall", course: "Deep Learning", audience: "AI Program, Junior Undergraduate", instructor: "Prof. Yu-Chung Wang" },
+        { term: "PhD Year 1 Spring", course: "Deep Learning (English-taught, Joint Master's/PhD)", audience: "AI Master's Program and Divison of AI in Clinical Medical Sciences PhD Program", instructor: "Chair Prof. Kwei-Jay Lin" },
+        { term: "PhD Year 2 Fall", course: "Generative Artificial Intelligence (English-taught, Joint Master's/PhD)", audience: "AI Master's Program and Divison of AI in Clinical Medical Sciences PhD Program", instructor: "Dean Jane Yung-Jen Hsu" },
+        { term: "PhD Year 2 Fall", course: "Introduction to Intelligent Methods", audience: "Divison of AI in Clinical Medical Sciences PhD Program and Institute of Health Data Science", instructor: "Chair Prof. Kwei-Jay Lin" },
+        { term: "PhD Year 2 Fall", course: "Introduction to Intelligent Computing Technologies (English-taught)", audience: "AI Master's Program", instructor: "Chair Prof. Kwei-Jay Lin" },
         { term: "PhD Year 2 Fall", course: "Machine Learning (Support TA)", audience: "Department of AI, Sophomore Undergraduate", instructor: "Asst. Prof. Yang, Chih-Yuan" },
         { term: "PhD Year 2 Fall", course: "Medical Image Processing (Support TA)", audience: "AI Master's Program and Institute of Health Data", instructor: "Asst. Prof. Hsu, Ai-Ling" },
-        { term: "PhD Year 2 Spring", course: "Introduction to Intelligent Computing Technologies", audience: "AIMD, School of Medicine and School of Chinese Medicine", instructor: "Chair Prof. Lin, Kuei-Chieh" }
+        { term: "PhD Year 2 Spring", course: "Introduction to Intelligent Computing Technologies", audience: "AIMD, School of Medicine and School of Chinese Medicine", instructor: "Chair Prof. Kwei-Jay Lin" }
       ]
     },
     activities: {
