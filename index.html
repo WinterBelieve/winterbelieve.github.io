@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bilingual academic profile of Daniel Yuan at Chang Gung University.">
+  <title>Daniel Yuan | Academic Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-locked" data-lang="zh" data-page="about">
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <div class="intro-panel">
+      <p id="intro-kicker" class="intro-kicker"></p>
+      <h1 id="intro-title" class="intro-title"></h1>
+      <p id="intro-copy" class="intro-copy"></p>
+      <div class="language-choice" role="radiogroup" aria-label="Language Selection">
+        <button class="lang-choice" data-lang-choice="zh" type="button">中文</button>
+        <button class="lang-choice" data-lang-choice="en" type="button">English</button>
+      </div>
+      <button id="enter-btn" class="btn btn-primary" type="button"></button>
+    </div>
+  </div>
+
+  <div class="backdrop" aria-hidden="true">
+    <span class="blob blob-a"></span>
+    <span class="blob blob-b"></span>
+    <span class="blob blob-c"></span>
+  </div>
+
+  <header class="site-header">
+    <a href="index.html" class="brand" aria-label="Back to top">DY</a>
+    <nav class="nav">
+      <a id="nav-about" href="index.html"></a>
+      <a id="nav-education" href="education.html"></a>
+      <a id="nav-experience" href="experience.html"></a>
+      <a id="nav-publications" href="publications.html"></a>
+      <a id="nav-teaching" href="teaching.html"></a>
+      <a id="nav-activities" href="activities.html"></a>
+      <a id="nav-contact" href="contact.html"></a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language Switcher">
+      <button class="lang-toggle" data-set-lang="zh" type="button">中</button>
+      <button class="lang-toggle" data-set-lang="en" type="button">EN</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <p id="hero-tag" class="tag reveal"></p>
+      <h1 class="hero-name reveal">
+        <span id="hero-name-zh"></span>
+        <span id="hero-name-en"></span>
+      </h1>
+      <p id="hero-title" class="hero-title reveal"></p>
+      <p id="hero-affiliation" class="hero-affiliation reveal"></p>
+      <div class="hero-actions reveal">
+        <a id="hero-primary" class="btn btn-primary" href="publications.html"></a>
+        <a id="hero-secondary" class="btn btn-secondary" href="contact.html"></a>
+      </div>
+      <div id="metrics-container" class="hero-metrics"></div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-head reveal">
+        <p id="about-tag" class="tag"></p>
+        <h2 id="about-title"></h2>
+      </div>
+      <p id="about-lead" class="lead reveal"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p id="footer-text"></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
