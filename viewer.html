@@ -42,9 +42,21 @@
         <h2 id="viewer-title"></h2>
       </div>
       <p id="viewer-meta" class="section-copy reveal"></p>
+
       <div class="doc-shell reveal">
-        <iframe id="doc-frame" class="doc-frame" title="Document preview"></iframe>
+        <div id="pdf-stage" class="pdf-stage" aria-live="polite">
+          <p id="pdf-loading" class="pdf-loading">Loading document...</p>
+          <canvas id="pdf-canvas" class="pdf-canvas" hidden></canvas>
+          <p id="pdf-error" class="pdf-error" hidden></p>
+        </div>
       </div>
+
+      <div id="pdf-controls" class="pdf-controls reveal" aria-label="Document pagination">
+        <button id="pdf-prev" class="btn btn-secondary pdf-nav-btn" type="button">Previous</button>
+        <span id="pdf-page-indicator" class="pdf-page-indicator"></span>
+        <button id="pdf-next" class="btn btn-secondary pdf-nav-btn" type="button">Next</button>
+      </div>
+
       <div class="viewer-actions reveal">
         <a id="viewer-back" class="btn btn-primary" href="publications.html">Back to Publications</a>
       </div>
@@ -56,6 +68,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script src="viewer.js"></script>
 </body>
 </html>
