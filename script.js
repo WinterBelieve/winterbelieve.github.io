@@ -346,7 +346,7 @@ const content = {
         { stage: "Master's Program", clubs: ["Piano Club"] },
         {
           stage: "PhD Program",
-          clubs: ["Piano Club", "Chinese Medicine Club", "Kendo Club", "Astronomy and Space Club", "Go Club", "Table Tennis Club", "Board Game Club", "Information Club", "Teaism Club", "Baking Club", "Hiking Club"]
+          clubs: ["Piano Club", "Chinese Medicine Club", "Kendo Club", "Astronomy and Space Club", "Go Club", "Table Tennis Club", "Board Game Club", "Information Club", "Teaism Club", "Baking Club", "Hiking Club", "Photo Club", "Animation Comic Game Club", "Badminton Club"]
         }
       ]
     },
