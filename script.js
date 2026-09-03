@@ -1,5 +1,7 @@
 ﻿const LANG_KEY = "daniel_site_lang";
 const INTRO_KEY = "daniel_intro_seen";
+const THEME_KEY = "daniel_site_theme";
+const SORT_KEY_PREFIX = "daniel_site_sort_";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const body = document.body;
@@ -8,6 +10,21 @@ const enterBtn = document.getElementById("enter-btn");
 const cursorGlow = document.querySelector(".cursor-glow");
 
 let revealObserver = null;
+
+const themeCopy = {
+  zh: {
+    dark: "切換至夜間模式",
+    light: "切換至日間模式",
+    darkShort: "夜間模式",
+    lightShort: "日間模式"
+  },
+  en: {
+    dark: "Switch to dark mode",
+    light: "Switch to light mode",
+    darkShort: "Dark mode",
+    lightShort: "Light mode"
+  }
+};
 
 const PAGE_KEYS = [
   "about",
@@ -18,6 +35,29 @@ const PAGE_KEYS = [
   "activities",
   "contact"
 ];
+
+const SOURCE_SORT_ORDERS = {
+  education: "asc",
+  experience: "desc",
+  publications: "desc",
+  teaching: "asc",
+  activities: "asc"
+};
+
+const sortCopy = {
+  zh: {
+    label: "時間排序",
+    group: "選擇時間排序方式",
+    desc: "由新到舊",
+    asc: "由舊到新"
+  },
+  en: {
+    label: "Timeline order",
+    group: "Choose timeline order",
+    desc: "Newest first",
+    asc: "Oldest first"
+  }
+};
 
 const content = {
   zh: {
@@ -46,7 +86,7 @@ const content = {
       primary: "查看學術成果",
       secondary: "聯絡方式",
       metrics: [
-        { value: "3", label: "學術成果（論文、Workshop、碩論）" },
+        { value: "4", label: "學術成果（論文、Workshop、碩論）" },
         { value: "12+", label: "課程 TA 支援經驗" },
         { value: "2", label: "研究助理職務（校內與醫院）" }
       ]
@@ -54,7 +94,7 @@ const content = {
     about: {
       tag: "自我介紹",
       title: "研究背景與方向",
-      lead: "袁聖博目前為長庚大學臨床醫學研究所人工智慧組博士生，研究聚焦於腦部醫學影像與心臟超音波影像的人工智慧分析。曾從事膠質母細胞瘤復發樣態的預測研究；在心臟超音波影像方面，進行以自監督學習為核心的左心室分割模型開發。另外亦參與胃鏡與眼底鏡影像分析相關研究，累積跨模態醫學影像建模經驗。"
+      lead: "袁聖博目前為長庚大學臨床醫學研究所人工智慧組博士生，研究聚焦於腦部醫學影像與心臟超音波影像的人工智慧分析。曾從事膠質母細胞瘤復發樣態的預測研究；在心臟超音波影像方面，進行以自監督學習為核心的左心室分割模型開發。另外亦參與胃鏡與眼底鏡影像分析相關研究，累積跨模態醫學影像建模經驗。目前亦參與 Taiwan AICoE「邁向新世代前瞻人工智慧主題研究專案計畫（114 年度）」之「超越 Scaling 法則：一個以資料效率與可信賴為核心的模組化醫療視覺基礎模型架構」研究，關注資料效率、模型模組化與可信賴醫療人工智慧。"
     },
     education: {
       tag: "學歷",
@@ -76,8 +116,8 @@ const content = {
           note: "2022/09 - 2024/07"
         },
         {
-          title: "人工智慧組博士生",
-          subtitle: "長庚大學 臨床醫學研究所",
+          title: "臨床醫學（理學）博士生",
+          subtitle: "長庚大學 臨床醫學研究所 人工智慧組博士班｜博士三年級",
           note: "2024/09 - 現今"
         }
       ]
@@ -87,11 +127,18 @@ const content = {
       title: "研究與實務經驗",
       items: [
         {
-          title: "工業技術研究院 綠能與環境研究所 實習生",
-          period: "2020/09 - 2021/09",
+          title: "Taiwan AICoE 研究計畫",
+          period: "邁向新世代前瞻人工智慧主題研究專案計畫（114 年度）",
           points: [
-            "馬達波形實驗與分析（10 個月，現場）：進行波形量測、訊號分析，以及馬達驅動器與相關電子元件測試。",
-            "遠距研究協作（2 個月）：協助國際專利檢索與文獻翻譯（英文期刊、日文資料），整理重點並製作簡報。"
+            "研究主題：超越 Scaling 法則：一個以資料效率與可信賴為核心的模組化醫療視覺基礎模型架構"
+          ]
+        },
+        {
+          title: "研究助理職務（博士班期間）",
+          period: "2024/09 - 現今",
+          points: [
+            "長庚大學 研究助理",
+            "長庚醫院心臟內科 兼任研究助理（Adjunct Research Assistant）"
           ]
         },
         {
@@ -103,11 +150,11 @@ const content = {
           ]
         },
         {
-          title: "研究助理職務（博士班期間）",
-          period: "長庚大學 / 長庚醫院",
+          title: "工業技術研究院 綠能與環境研究所 實習生",
+          period: "2020/09 - 2021/09",
           points: [
-            "長庚大學 研究助理",
-            "長庚醫院心臟內科 兼任研究助理（Adjunct Research Assistant）"
+            "馬達波形實驗與分析（10 個月，現場）：進行波形量測、訊號分析，以及馬達驅動器與相關電子元件測試。",
+            "遠距研究協作（2 個月）：協助國際專利檢索與文獻翻譯（英文期刊、日文資料），整理重點並製作簡報。"
           ]
         }
       ]
@@ -115,19 +162,17 @@ const content = {
     publications: {
       tag: "學術成果",
       title: "論文、投稿與學術發表",
-      summary: "點擊下方連結會先進入網站內的文件展示頁，再顯示對應檔案。",
+      summary: "依時間由新到舊排列；已提供檔案的項目可進入網站內的文件展示頁。",
       items: [
         {
-          kind: "Conference Paper",
-          title: "Application of Incremental Learning to Medical Image Segmentation of Glioblastoma Multiforme",
-          venue: "NST2024",
-          role: "第一作者（First Author）",
-          links: [
-            { label: "開啟論文展示頁", href: "viewer.html?doc=nst2024" }
-          ]
+          kind: "研討會論文｜口頭發表",
+          title: "Cross-Dataset Comparison of Pretrained CV Backbones for Echocardiography Segmentation",
+          venue: "IIAI AAI 2026 (SCAI 2026)｜日本",
+          role: "第一作者口頭發表（First Author, Oral Presentation）",
+          links: []
         },
         {
-          kind: "Workshop Oral Presentation",
+          kind: "工作坊口頭報告",
           title: "Self-Supervised Masked Autoencoders for High-Accuracy Left Ventricle Segmentation in Echocardiography",
           venue: "ACML 2025 Workshop - Medical AI Workshop: Making AI Safe and Healthy (MASH)",
           role: "第一作者口頭發表（First Author, Oral Presentation）",
@@ -136,12 +181,21 @@ const content = {
           ]
         },
         {
-          kind: "Master Thesis",
+          kind: "碩士論文",
           title: "使用全腦分割影像提升神經膠質瘤復發樣態預測準確度",
           venue: "長庚大學 碩士論文",
           role: "碩士論文",
           links: [
             { label: "開啟碩論展示頁", href: "viewer.html?doc=thesis" }
+          ]
+        },
+        {
+          kind: "研討會論文",
+          title: "Application of Incremental Learning to Medical Image Segmentation of Glioblastoma Multiforme",
+          venue: "NST2024",
+          role: "第一作者（First Author）",
+          links: [
+            { label: "開啟論文展示頁", href: "viewer.html?doc=nst2024" }
           ]
         }
       ]
@@ -182,14 +236,14 @@ const content = {
     contact: {
       tag: "聯絡",
       title: "聯絡資訊",
-      copy: "目前先放 Email 與 GitHub；Google Scholar 可後續補上。",
+      copy: "歡迎透過 Email 或 GitHub 與我聯絡。",
       email: "winterdanielyuan@gmail.com",
       githubLabel: "GitHub",
       githubHref: "https://github.com/winterbelieve",
       scholarLabel: "Google Scholar（待補）",
       scholarHref: "#"
     },
-    footer: "(c) {year} 袁聖博 Daniel Yuan. All rights reserved."
+    footer: "© {year} 袁聖博 Daniel Yuan. All rights reserved."
   },
   en: {
     pageTitle: "Daniel Yuan | Academic Profile",
@@ -217,7 +271,7 @@ const content = {
       primary: "View Publications",
       secondary: "Contact",
       metrics: [
-        { value: "3", label: "Academic outputs (thesis, conference, workshop)" },
+        { value: "4", label: "Academic outputs (thesis, conference, workshop)" },
         { value: "12+", label: "Teaching assistant assignments" },
         { value: "2", label: "Research assistant positions" }
       ]
@@ -225,7 +279,7 @@ const content = {
     about: {
       tag: "About",
       title: "Background and Research Focus",
-      lead: "Sheng-Po Yuan is currently a PhD student in the Graduate Institute of Clinical Medical Sciences, Division of Artificial Intelligence, at Chang Gung University. His research focuses on AI-based analysis of brain medical imaging and cardiac ultrasound imaging. He has previously worked on predicting recurrence patterns of glioblastoma and on self-supervised left ventricle segmentation in echocardiography. He has also participated in gastroscopy and fundus imaging research, building cross-modality experience in medical image modeling."
+      lead: "Sheng-Po Yuan is currently a PhD student in the Graduate Institute of Clinical Medical Sciences, Division of Artificial Intelligence, at Chang Gung University. His research focuses on AI-based analysis of brain medical imaging and cardiac ultrasound imaging. He has previously worked on predicting recurrence patterns of glioblastoma and on self-supervised left ventricle segmentation in echocardiography. He has also participated in gastroscopy and fundus imaging research, building cross-modality experience in medical image modeling. He is currently involved in the Taiwan AICoE Next-Generation Forward-Looking AI Thematic Research Program (2025 / ROC Year 114), contributing to the project “Beyond Scaling Laws: A Modular Medical Vision Foundation Model Architecture Centered on Data Efficiency and Trustworthiness,” with an emphasis on data-efficient, modular, and trustworthy medical AI."
     },
     education: {
       tag: "Education",
@@ -247,8 +301,8 @@ const content = {
           note: "2022/09 - 2024/07"
         },
         {
-          title: "PhD Student, Division of Artificial Intelligence",
-          subtitle: "Graduate Institute of Clinical Medical Sciences, Chang Gung University",
+          title: "PhD Student in Clinical Medical Sciences",
+          subtitle: "Graduate Institute of Clinical Medical Sciences, Division of Artificial Intelligence PhD Program | Year 3, Chang Gung University",
           note: "2024/09 - Present"
         }
       ]
@@ -258,11 +312,18 @@ const content = {
       title: "Research and Practical Experience",
       items: [
         {
-          title: "Intern, Green Energy and Environment Research Laboratories, ITRI",
-          period: "Sep 2020 - Sep 2021",
+          title: "Taiwan AICoE Research Project",
+          period: "Next-Generation Forward-Looking AI Thematic Research Program (2025 / ROC Year 114)",
           points: [
-            "Motor Waveform Experiment and Analysis (10 months, on-site): conducted waveform experiments, signal analysis, and testing of motor drivers and related electronic components.",
-            "Remote Research Assistance (2 months): reviewed international patents, translated English and Japanese references, summarized key findings, and prepared presentation slides."
+            "Research topic: Beyond Scaling Laws: A Modular Medical Vision Foundation Model Architecture Centered on Data Efficiency and Trustworthiness."
+          ]
+        },
+        {
+          title: "Research Assistant Roles During PhD Study",
+          period: "Sep 2024 - Present",
+          points: [
+            "Research Assistant, Chang Gung University",
+            "Adjunct Research Assistant, Department of Cardiology, Chang Gung Memorial Hospital"
           ]
         },
         {
@@ -274,11 +335,11 @@ const content = {
           ]
         },
         {
-          title: "Research Assistant Roles During PhD Study",
-          period: "Chang Gung University / Chang Gung Memorial Hospital",
+          title: "Intern, Green Energy and Environment Research Laboratories, ITRI",
+          period: "Sep 2020 - Sep 2021",
           points: [
-            "Research Assistant, Chang Gung University",
-            "Adjunct Research Assistant, Department of Cardiology, Chang Gung Memorial Hospital"
+            "Motor Waveform Experiment and Analysis (10 months, on-site): conducted waveform experiments, signal analysis, and testing of motor drivers and related electronic components.",
+            "Remote Research Assistance (2 months): reviewed international patents, translated English and Japanese references, summarized key findings, and prepared presentation slides."
           ]
         }
       ]
@@ -286,16 +347,14 @@ const content = {
     publications: {
       tag: "Publications",
       title: "Thesis, Conference, and Workshop Outputs",
-      summary: "Each item links to an internal viewer page in this website, where the file is displayed.",
+      summary: "Listed in reverse chronological order. Items with available files open in this website's document viewer.",
       items: [
         {
-          kind: "Conference Paper",
-          title: "Application of Incremental Learning to Medical Image Segmentation of Glioblastoma Multiforme",
-          venue: "NST2024",
-          role: "First Author",
-          links: [
-            { label: "Open Paper Viewer", href: "viewer.html?doc=nst2024" }
-          ]
+          kind: "Conference Paper | Oral Presentation",
+          title: "Cross-Dataset Comparison of Pretrained CV Backbones for Echocardiography Segmentation",
+          venue: "IIAI AAI 2026 (SCAI 2026) | Japan",
+          role: "First Author, Oral Presentation",
+          links: []
         },
         {
           kind: "Workshop Oral Presentation",
@@ -307,12 +366,21 @@ const content = {
           ]
         },
         {
-          kind: "Master Thesis",
+          kind: "Master's Thesis",
           title: "Enhancing the Prediction Accuracy of Glioblastoma Recurrence Patterns Using Whole Brain Segmentation Images",
           venue: "Master's Thesis, Chang Gung University",
-          role: "Master Thesis",
+          role: "Master's Thesis",
           links: [
             { label: "Open Thesis Viewer", href: "viewer.html?doc=thesis" }
+          ]
+        },
+        {
+          kind: "Conference Paper",
+          title: "Application of Incremental Learning to Medical Image Segmentation of Glioblastoma Multiforme",
+          venue: "NST2024",
+          role: "First Author",
+          links: [
+            { label: "Open Paper Viewer", href: "viewer.html?doc=nst2024" }
           ]
         }
       ]
@@ -353,14 +421,14 @@ const content = {
     contact: {
       tag: "Contact",
       title: "Contact Information",
-      copy: "Email and GitHub are ready. Google Scholar can be added once you provide the link.",
+      copy: "You are welcome to contact me by email or connect with me on GitHub.",
       email: "winterdanielyuan@gmail.com",
       githubLabel: "GitHub",
       githubHref: "https://github.com/winterbelieve",
       scholarLabel: "Google Scholar (Pending)",
       scholarHref: "#"
     },
-    footer: "(c) {year} Daniel Yuan. All rights reserved."
+    footer: "© {year} Daniel Yuan. All rights reserved."
   }
 };
 
@@ -387,6 +455,50 @@ function setStoredValue(key, value) {
   } catch {
     // Ignore storage errors in restricted environments.
   }
+}
+
+function getSortOrder(pageKey) {
+  const savedOrder = getStoredValue(`${SORT_KEY_PREFIX}${pageKey}`);
+  return savedOrder === "asc" || savedOrder === "desc" ? savedOrder : "desc";
+}
+
+function getOrderedItems(items, pageKey) {
+  const sourceOrder = SOURCE_SORT_ORDERS[pageKey];
+  const selectedOrder = getSortOrder(pageKey);
+
+  if (!sourceOrder || selectedOrder === sourceOrder) {
+    return items;
+  }
+
+  return [...items].reverse();
+}
+
+function updateSortControls(pageKey, lang) {
+  const toolbar = document.querySelector("[data-sort-toolbar]");
+  if (!toolbar || !SOURCE_SORT_ORDERS[pageKey]) {
+    return;
+  }
+
+  const copy = sortCopy[lang] || sortCopy.en;
+  const selectedOrder = getSortOrder(pageKey);
+  const label = toolbar.querySelector("[data-sort-label]");
+  const group = toolbar.querySelector("[data-sort-group]");
+
+  if (label) {
+    label.textContent = copy.label;
+  }
+
+  if (group) {
+    group.setAttribute("aria-label", copy.group);
+  }
+
+  toolbar.querySelectorAll("[data-sort-order]").forEach((button) => {
+    const order = button.dataset.sortOrder;
+    const isActive = order === selectedOrder;
+    button.textContent = copy[order];
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
 }
 
 function setText(id, value) {
@@ -565,6 +677,44 @@ function setLanguageButtons(lang) {
   });
 }
 
+function getActiveTheme() {
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+}
+
+function updateThemeButtons(lang) {
+  const currentTheme = getActiveTheme();
+  const targetTheme = currentTheme === "dark" ? "light" : "dark";
+  const copy = themeCopy[lang] || themeCopy.en;
+  const label = copy[targetTheme];
+  const shortLabel = copy[`${targetTheme}Short`];
+
+  document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+    button.setAttribute("aria-label", label);
+    button.setAttribute("title", label);
+    button.setAttribute("aria-pressed", String(currentTheme === "dark"));
+
+    const icon = button.querySelector(".theme-icon");
+    if (icon) {
+      icon.textContent = targetTheme === "dark" ? "☾" : "☀";
+    }
+
+    const text = button.querySelector(".theme-label");
+    if (text) {
+      text.textContent = shortLabel;
+    }
+  });
+}
+
+function setTheme(theme, persist = false) {
+  document.documentElement.dataset.theme = theme;
+
+  if (persist) {
+    setStoredValue(THEME_KEY, theme);
+  }
+
+  updateThemeButtons(currentLanguage);
+}
+
 function setupRevealObserver() {
   if (prefersReducedMotion) {
     document.querySelectorAll(".reveal").forEach((node) => node.classList.add("in-view"));
@@ -679,25 +829,25 @@ function renderSite(lang) {
 
   setText("education-tag", ui.education.tag);
   setText("education-title", ui.education.title);
-  renderEducation(ui.education.items);
+  renderEducation(getOrderedItems(ui.education.items, "education"));
 
   setText("experience-tag", ui.experience.tag);
   setText("experience-title", ui.experience.title);
-  renderExperience(ui.experience.items);
+  renderExperience(getOrderedItems(ui.experience.items, "experience"));
 
   setText("publications-tag", ui.publications.tag);
   setText("publications-title", ui.publications.title);
   setText("publications-summary", ui.publications.summary);
-  renderPublications(ui.publications.items);
+  renderPublications(getOrderedItems(ui.publications.items, "publications"));
 
   setText("teaching-tag", ui.teaching.tag);
   setText("teaching-title", ui.teaching.title);
   setText("teaching-summary", ui.teaching.summary);
-  renderTeaching(ui.teaching.items, ui.teaching.instructorLabel);
+  renderTeaching(getOrderedItems(ui.teaching.items, "teaching"), ui.teaching.instructorLabel);
 
   setText("activities-tag", ui.activities.tag);
   setText("activities-title", ui.activities.title);
-  renderActivities(ui.activities.items);
+  renderActivities(getOrderedItems(ui.activities.items, "activities"));
 
   setText("contact-tag", ui.contact.tag);
   setText("contact-title", ui.contact.title);
@@ -715,6 +865,8 @@ function renderSite(lang) {
   setText("footer-text", ui.footer.replace("{year}", year));
 
   setLanguageButtons(lang);
+  updateThemeButtons(lang);
+  updateSortControls(pageKey, lang);
 
   if (!body.classList.contains("is-locked")) {
     setupRevealObserver();
@@ -751,6 +903,27 @@ document.querySelectorAll("[data-lang-choice]").forEach((button) => {
   button.addEventListener("click", () => {
     currentLanguage = button.dataset.langChoice;
     setStoredValue(LANG_KEY, currentLanguage);
+    renderSite(currentLanguage);
+  });
+});
+
+document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const nextTheme = getActiveTheme() === "dark" ? "light" : "dark";
+    setTheme(nextTheme, true);
+  });
+});
+
+document.querySelectorAll("[data-sort-order]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const pageKey = body.dataset.page;
+    const order = button.dataset.sortOrder;
+
+    if (!SOURCE_SORT_ORDERS[pageKey] || (order !== "asc" && order !== "desc")) {
+      return;
+    }
+
+    setStoredValue(`${SORT_KEY_PREFIX}${pageKey}`, order);
     renderSite(currentLanguage);
   });
 });

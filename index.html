@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="theme-init.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="is-locked" data-lang="zh" data-page="about">
@@ -22,6 +23,10 @@
         <button class="lang-choice" data-lang-choice="zh" type="button">中文</button>
         <button class="lang-choice" data-lang-choice="en" type="button">English</button>
       </div>
+      <button class="theme-toggle intro-theme-toggle" data-theme-toggle type="button" aria-label="切換至夜間模式" title="切換至夜間模式">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+        <span class="theme-label">夜間模式</span>
+      </button>
       <button id="enter-btn" class="btn btn-primary" type="button"></button>
     </div>
   </div>
@@ -43,9 +48,14 @@
       <a id="nav-activities" href="activities.html"></a>
       <a id="nav-contact" href="contact.html"></a>
     </nav>
-    <div class="lang-switch" role="group" aria-label="Language Switcher">
-      <button class="lang-toggle" data-set-lang="zh" type="button">中</button>
-      <button class="lang-toggle" data-set-lang="en" type="button">EN</button>
+    <div class="header-controls">
+      <button class="theme-toggle" data-theme-toggle type="button" aria-label="切換至夜間模式" title="切換至夜間模式">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+      </button>
+      <div class="lang-switch" role="group" aria-label="Language Switcher">
+        <button class="lang-toggle" data-set-lang="zh" type="button">中</button>
+        <button class="lang-toggle" data-set-lang="en" type="button">EN</button>
+      </div>
     </div>
   </header>
 
