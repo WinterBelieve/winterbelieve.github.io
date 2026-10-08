@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="brain" viewBox="0 0 240 200">
+    <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M119 35C95 20 67 33 59 50C35 49 19 70 25 89C5 104 14 133 28 140C24 168 50 179 65 173C78 191 112 187 119 170ZM121 35C145 20 173 33 181 50C205 49 221 70 215 89C235 104 226 133 212 140C216 168 190 179 175 173C162 191 128 187 121 170Z"/>
+      <path d="M78 43C102 52 69 67 86 82S110 98 99 110M44 68C61 84 34 99 56 111S73 139 61 151M79 103C95 121 73 135 92 148S111 158 97 173M162 43C138 52 171 67 154 82S130 98 141 110M196 68C179 84 206 99 184 111S167 139 179 151M161 103C145 121 167 135 148 148S129 158 143 173"/>
+      <path d="M6 195H234" opacity=".2"/><path d="M120 3V17M11 97H1M239 97H229" opacity=".4"/>
+    </g>
+    <circle cx="86" cy="83" r="5" fill="#d59771"/><circle cx="152" cy="129" r="4" fill="#d59771"/>
+  </symbol>
+  <symbol id="echo" viewBox="0 0 240 200">
+    <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M120 16L32 144Q118 190 208 144ZM120 45L55 142Q119 170 186 142M120 78L78 139Q119 155 161 140" opacity=".55"/>
+      <path d="M108 84C86 103 88 137 116 142C145 144 164 117 144 96C132 79 118 73 108 84Z" stroke="#c58b67" stroke-width="2.4"/>
+      <path d="M20 179H50L57 174L65 185L74 166L82 192L90 179H144L151 174L158 185L166 166L174 192L182 179H220"/>
+      <path d="M12 29V16H28M212 16H228V29" opacity=".4"/>
+    </g>
+  </symbol>
+  <symbol id="network" viewBox="0 0 240 200">
+    <g fill="none" stroke="currentColor" stroke-width="1.4" opacity=".65"><path d="M40 58L117 31L197 59L183 146L111 168L44 132ZM40 58L111 168L197 59L44 132L117 31L183 146L40 58M117 31L111 168M44 132L183 146"/></g>
+    <g fill="#d59771"><circle cx="40" cy="58" r="7"/><circle cx="117" cy="31" r="8"/><circle cx="197" cy="59" r="6"/><circle cx="183" cy="146" r="8"/><circle cx="111" cy="168" r="6"/><circle cx="44" cy="132" r="6"/></g>
+    <path d="M101 95L114 108L140 78" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>

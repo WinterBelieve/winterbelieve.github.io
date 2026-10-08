@@ -3,91 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bilingual academic profile of Daniel Yuan at Chang Gung University.">
+  <meta name="description" content="Daniel Yuan / 袁聖博. Medical imaging and artificial intelligence research at Chang Gung University.">
   <title>Daniel Yuan | Academic Profile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="theme-init.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="is-locked" data-lang="zh" data-page="about">
+<body class="is-locked home-page" data-lang="zh" data-page="about">
+  <a class="skip-link" href="#main" data-copy="skip">跳至主要內容</a>
   <div class="cursor-glow" aria-hidden="true"></div>
-
-  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
-    <div class="intro-panel">
-      <p id="intro-kicker" class="intro-kicker"></p>
-      <h1 id="intro-title" class="intro-title"></h1>
-      <p id="intro-copy" class="intro-copy"></p>
-      <div class="language-choice" role="radiogroup" aria-label="Language Selection">
-        <button class="lang-choice" data-lang-choice="zh" type="button">中文</button>
-        <button class="lang-choice" data-lang-choice="en" type="button">English</button>
-      </div>
-      <button class="theme-toggle intro-theme-toggle" data-theme-toggle type="button" aria-label="切換至夜間模式" title="切換至夜間模式">
-        <span class="theme-icon" aria-hidden="true">☾</span>
-        <span class="theme-label">夜間模式</span>
-      </button>
-      <button id="enter-btn" class="btn btn-primary" type="button"></button>
-    </div>
-  </div>
-
-  <div class="backdrop" aria-hidden="true">
-    <span class="blob blob-a"></span>
-    <span class="blob blob-b"></span>
-    <span class="blob blob-c"></span>
-  </div>
-
   <header class="site-header">
-    <a href="index.html" class="brand" aria-label="Back to top">DY</a>
-    <nav class="nav">
-      <a id="nav-about" href="index.html"></a>
-      <a id="nav-education" href="education.html"></a>
-      <a id="nav-experience" href="experience.html"></a>
-      <a id="nav-publications" href="publications.html"></a>
-      <a id="nav-teaching" href="teaching.html"></a>
-      <a id="nav-activities" href="activities.html"></a>
-      <a id="nav-contact" href="contact.html"></a>
-    </nav>
-    <div class="header-controls">
-      <button class="theme-toggle" data-theme-toggle type="button" aria-label="切換至夜間模式" title="切換至夜間模式">
-        <span class="theme-icon" aria-hidden="true">☾</span>
-      </button>
-      <div class="lang-switch" role="group" aria-label="Language Switcher">
-        <button class="lang-toggle" data-set-lang="zh" type="button">中</button>
-        <button class="lang-toggle" data-set-lang="en" type="button">EN</button>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Daniel Yuan home">
+        <span class="brand-mark" aria-hidden="true">dy.</span>
+        <span class="brand-type"><strong>Daniel Yuan</strong><small data-copy="brandSubtitle">醫學影像・人工智慧</small></span>
+      </a>
+      <nav id="site-nav" class="nav" aria-label="Main navigation">
+        <a id="nav-about" href="index.html">首頁</a>
+        <a id="nav-education" href="education.html">學歷</a>
+        <a id="nav-experience" href="experience.html">經歷</a>
+        <a id="nav-publications" href="publications.html">學術成果</a>
+        <a id="nav-teaching" href="teaching.html">教學助理</a>
+        <a id="nav-activities" href="activities.html">社團參與</a>
+        <a id="nav-contact" href="contact.html">聯絡</a>
+      </nav>
+      <div class="header-controls">
+        <div class="lang-switch" role="group" aria-label="Language"><button class="lang-toggle" data-set-lang="zh" type="button">中</button><button class="lang-toggle" data-set-lang="en" type="button">EN</button></div>
+        <button class="theme-toggle" data-theme-toggle type="button" aria-label="切換至夜間模式"><span class="theme-icon" aria-hidden="true">☾</span></button>
+        <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="開啟選單"><span></span><span></span></button>
       </div>
     </div>
   </header>
-
-  <main id="top">
-    <section class="hero section">
-      <p id="hero-tag" class="tag reveal"></p>
-      <h1 class="hero-name reveal">
-        <span id="hero-name-zh"></span>
-        <span id="hero-name-en"></span>
-      </h1>
-      <p id="hero-title" class="hero-title reveal"></p>
-      <p id="hero-affiliation" class="hero-affiliation reveal"></p>
-      <div class="hero-actions reveal">
-        <a id="hero-primary" class="btn btn-primary" href="publications.html"></a>
-        <a id="hero-secondary" class="btn btn-secondary" href="contact.html"></a>
+  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <div class="intro-panel"><span class="intro-mark" aria-hidden="true">dy.</span><p id="intro-kicker" class="eyebrow"></p><h1 id="intro-title" class="intro-title"></h1><p id="intro-copy" class="intro-copy"></p>
+      <div class="language-choice" role="group" aria-label="Language selection"><button class="lang-choice" data-lang-choice="zh" type="button">繁體中文</button><button class="lang-choice" data-lang-choice="en" type="button">English</button></div>
+      <button class="theme-toggle intro-theme-toggle" data-theme-toggle type="button"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label"></span></button>
+      <button id="enter-btn" class="btn btn-primary" type="button">進入網站</button>
+    </div>
+  </div>
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-content shell">
+        <p id="hero-tag" class="eyebrow reveal">學術個人網站</p>
+        <h1 class="hero-headline reveal" data-copy="heroHeadline">探索醫學影像<br>的更多可能</h1>
+        <p class="hero-deck reveal" data-copy="heroDeck">從腦部 MRI 到心臟超音波，<br>以人工智慧，理解影像背後的訊息。</p>
+        <a id="hero-primary" class="btn btn-light reveal" href="publications.html">查看學術成果</a>
+        <a class="hero-scroll" href="#about" data-copy="heroScroll">往下探索 ↓</a>
       </div>
+    </section>
+    <div class="identity-band shell reveal">
+      <div class="identity-name"><h2 id="hero-name-zh">袁聖博</h2><p id="hero-name-en">Daniel Yuan</p></div>
+      <div class="identity-detail"><p id="hero-title"></p><p id="hero-affiliation"></p></div>
+      <span class="identity-seal" aria-hidden="true">MEDICAL<br>IMAGING<br>& AI</span>
+    </div>
+    <section id="about" class="section shell about-section">
+      <div class="section-head reveal"><p id="about-tag" class="eyebrow"></p><h2 id="about-title"></h2><span class="section-rule" aria-hidden="true"></span></div>
+      <div class="about-body"><p id="about-lead" class="lead reveal"></p><div class="about-aside reveal"><p class="aside-number">01—03</p><p data-copy="aboutAside">影像、學習與臨床<br>在研究中交會。</p><a id="hero-secondary" class="text-link" href="contact.html"></a></div></div>
+    </section>
+    <section class="research-section section">
+      <div class="shell"><div class="section-head centered reveal"><p class="eyebrow">RESEARCH FOCUS</p><h2 data-copy="researchTitle">三個視角，一條研究之路</h2><p class="section-deck" data-copy="researchDeck">從影像分割出發，探索資料效率與可信賴的醫療人工智慧。</p></div><div id="research-cards" class="research-grid"></div></div>
+    </section>
+    <section class="section shell outputs-section">
+      <div class="section-head horizontal reveal"><div><p class="eyebrow">SELECTED WORK</p><h2 data-copy="selectedTitle">研究，留下的足跡</h2></div><a class="text-link" href="publications.html" data-copy="allPublications">所有學術成果 ↗</a></div>
+      <div id="selected-publications" class="selected-list"></div>
       <div id="metrics-container" class="hero-metrics"></div>
     </section>
-
-    <section id="about" class="section">
-      <div class="section-head reveal">
-        <p id="about-tag" class="tag"></p>
-        <h2 id="about-title"></h2>
-      </div>
-      <p id="about-lead" class="lead reveal"></p>
-    </section>
+    <section class="journey-section section shell"><div class="section-head centered reveal"><p class="eyebrow">BEYOND RESEARCH</p><h2 data-copy="journeyTitle">持續累積，也持續探索</h2></div><div id="journey-links" class="journey-grid"></div></section>
+    <section class="contact-banner section"><div class="shell reveal"><p class="eyebrow">LET'S CONNECT</p><h2 data-copy="connectTitle">讓交流，開啟下一個想法。</h2><a class="btn btn-primary" href="contact.html" data-copy="connectAction">與我聯絡 ↗</a></div></section>
   </main>
-
   <footer class="site-footer">
-    <p id="footer-text"></p>
+    <div class="footer-grid shell">
+      <div class="footer-about"><a class="footer-name" href="index.html">Daniel Yuan<span>袁聖博</span></a><p data-copy="footerNote">以人工智慧探索醫學影像，持續學習，連結研究與臨床。</p></div>
+      <div><p class="footer-label" data-copy="footerExplore">探索網站</p><nav class="footer-nav" aria-label="Footer"><a data-footer-nav="education" href="education.html">學歷</a><a data-footer-nav="experience" href="experience.html">經歷</a><a data-footer-nav="publications" href="publications.html">學術成果</a><a data-footer-nav="teaching" href="teaching.html">教學助理</a><a data-footer-nav="activities" href="activities.html">社團參與</a></nav></div>
+      <div><p class="footer-label" data-copy="footerContact">保持聯繫</p><a data-site-email href="mailto:winterdanielyuan@gmail.com">winterdanielyuan@gmail.com</a><a data-site-github href="https://github.com/winterbelieve">GitHub ↗</a><p class="footer-affiliation">Chang Gung University<br>Taiwan</p></div>
+    </div>
+    <div class="footer-bottom shell"><p id="footer-text"></p><a href="#main" data-copy="backTop">回到頂端 ↑</a></div>
   </footer>
-
   <script src="script.js"></script>
+
 </body>
 </html>

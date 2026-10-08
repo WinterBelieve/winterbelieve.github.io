@@ -162,7 +162,7 @@ const content = {
     publications: {
       tag: "學術成果",
       title: "論文、投稿與學術發表",
-      summary: "依時間由新到舊排列；已提供檔案的項目可進入網站內的文件展示頁。",
+      summary: "以時間軸瀏覽論文與學術發表；有文件的成果，可直接在網站中閱讀。",
       items: [
         {
           kind: "研討會論文｜口頭發表",
@@ -229,7 +229,31 @@ const content = {
         { stage: "碩士班", clubs: ["鋼琴社"] },
         {
           stage: "博士班",
-          clubs: ["鋼琴社", "國醫社", "劍道社", "天文與太空社", "圍棋社", "桌球社", "桌遊社", "資訊社", "茶道社", "烘焙社", "登山社", "攝影社", "登山社", "漫研社"]
+          clubs: [
+            "國醫社",
+            "劍道社",
+            "天文社",
+            "圍棋社",
+            "鋼琴社",
+            "桌遊社",
+            "桌球社",
+            "漫研社",
+            "網球社",
+            "羽球社",
+            "茶道社",
+            "人工智慧學系系學會",
+            "桃園校友會",
+            "熱舞社",
+            "登山社",
+            "自由搏擊社",
+            "資訊社",
+            "攝影社",
+            "烘焙社",
+            "創創社",
+            "蒲公英工作隊",
+            "喵喵社",
+            "跆拳道社"
+          ]
         }
       ]
     },
@@ -347,7 +371,7 @@ const content = {
     publications: {
       tag: "Publications",
       title: "Thesis, Conference, and Workshop Outputs",
-      summary: "Listed in reverse chronological order. Items with available files open in this website's document viewer.",
+      summary: "Explore theses, conference papers, and presentations by year. Available documents can be read within this website.",
       items: [
         {
           kind: "Conference Paper | Oral Presentation",
@@ -414,7 +438,31 @@ const content = {
         { stage: "Master's Program", clubs: ["Piano Club"] },
         {
           stage: "PhD Program",
-          clubs: ["Piano Club", "Chinese Medicine Club", "Kendo Club", "Astronomy and Space Club", "Go Club", "Table Tennis Club", "Board Game Club", "Information Club", "Teaism Club", "Baking Club", "Hiking Club", "Photo Club", "Animation Comic Game Club", "Badminton Club"]
+          clubs: [
+            "Chinese Medicine Club",
+            "Kendo Club",
+            "Astronomy Club",
+            "Go Club",
+            "Piano Club",
+            "Board Game Club",
+            "Table Tennis Club",
+            "Manga and Anime Club",
+            "Tennis Club",
+            "Badminton Club",
+            "Teaism Club",
+            "Department of Artificial Intelligence Student Association",
+            "Taoyuan Alumni Association",
+            "Dance Club",
+            "Hiking Club",
+            "Kickboxing Club",
+            "Information Club",
+            "Photography Club",
+            "Baking Club",
+            "Chuang Chuang Club",
+            "Dandelion Team",
+            "Meow Meow Club",
+            "Taekwondo Club"
+          ]
         }
       ]
     },
@@ -431,6 +479,127 @@ const content = {
     footer: "© {year} Daniel Yuan. All rights reserved."
   }
 };
+
+const designCopy = {
+  zh: {
+    skip: "跳至主要內容",
+    brandSubtitle: "醫學影像・人工智慧",
+    heroHeadline: "探索醫學影像<br>的更多可能",
+    heroDeck: "從腦部 MRI 到心臟超音波，<br>以人工智慧，理解影像背後的訊息。",
+    heroScroll: "往下探索 ↓",
+    aboutAside: "影像、學習與臨床<br>在研究中交會。",
+    researchTitle: "三個視角，一條研究之路",
+    researchDeck: "從影像分割出發，探索資料效率與可信賴的醫療人工智慧。",
+    selectedTitle: "研究，留下的足跡",
+    allPublications: "所有學術成果 ↗",
+    readWork: "閱讀成果 ↗",
+    viewWork: "成果資訊 ↗",
+    journeyTitle: "持續累積，也持續探索",
+    connectTitle: "讓交流，開啟下一個想法。",
+    connectAction: "與我聯絡 ↗",
+    footerNote: "以人工智慧探索醫學影像，持續學習，連結研究與臨床。",
+    footerExplore: "探索網站",
+    footerContact: "保持聯繫",
+    backTop: "回到頂端 ↑",
+    pageEnd: "有想法想交流？與我聯絡 ↗",
+    contactHeading: "從一句話，<br>開始一次交流。",
+    contactLocation: "臺灣・桃園",
+    viewerReturn: "← 學術成果",
+    menuOpen: "開啟選單",
+    menuClose: "關閉選單",
+    research: [
+      { icon: "brain", title: "腦部 MRI", label: "BRAIN MRI", description: "曾從事膠質母細胞瘤復發樣態預測，運用全腦分割影像與增量學習，探索醫學影像分析。" },
+      { icon: "echo", title: "心臟超音波", label: "ECHOCARDIOGRAPHY", description: "開發自監督學習的左心室分割模型，並比較預訓練視覺骨幹在不同資料集上的表現。" },
+      { icon: "network", title: "可信賴醫療 AI", label: "TRUSTWORTHY MEDICAL AI", description: "參與 Taiwan AICoE 研究計畫，探索以資料效率與可信賴為核心的模組化醫療視覺基礎模型。" }
+    ],
+    journeys: [
+      { key: "education", label: "ACADEMIC JOURNEY", description: "從電子、電機，到人工智慧與臨床醫學。" },
+      { key: "teaching", label: "LEARNING TOGETHER", description: "在跨領域課程中，協助學習，也持續學習。" },
+      { key: "activities", label: "BEYOND THE LAB", description: "音樂、運動與社群，研究以外的探索。" }
+    ]
+  },
+  en: {
+    skip: "Skip to main content",
+    brandSubtitle: "Medical imaging & AI",
+    heroHeadline: "Seeing more.<br>Understanding more.",
+    heroDeck: "From brain MRI to echocardiography,<br>exploring medical images through artificial intelligence.",
+    heroScroll: "Explore below ↓",
+    aboutAside: "Where imaging,<br>learning, and clinical<br>research meet.",
+    researchTitle: "Three perspectives. One research journey.",
+    researchDeck: "From image segmentation to data-efficient, trustworthy medical AI.",
+    selectedTitle: "Research, in progress and in print.",
+    allPublications: "All publications ↗",
+    readWork: "Read work ↗",
+    viewWork: "View details ↗",
+    journeyTitle: "Always learning. Always exploring.",
+    connectTitle: "A conversation can start a new idea.",
+    connectAction: "Get in touch ↗",
+    footerNote: "Exploring medical images with AI, connecting research, learning, and clinical practice.",
+    footerExplore: "Explore",
+    footerContact: "Stay in touch",
+    backTop: "Back to top ↑",
+    pageEnd: "Have an idea to discuss? Get in touch ↗",
+    contactHeading: "Every conversation<br>starts somewhere.",
+    contactLocation: "Taoyuan, Taiwan",
+    viewerReturn: "← Publications",
+    menuOpen: "Open navigation",
+    menuClose: "Close navigation",
+    research: [
+      { icon: "brain", title: "Brain MRI", label: "BRAIN MRI", description: "Previous work on glioblastoma recurrence pattern prediction, whole-brain segmentation, and incremental learning for medical image analysis." },
+      { icon: "echo", title: "Echocardiography", label: "CARDIAC ULTRASOUND", description: "Self-supervised left ventricle segmentation and cross-dataset comparison of pretrained computer vision backbones." },
+      { icon: "network", title: "Trustworthy medical AI", label: "FOUNDATION MODELS", description: "Contributing to a Taiwan AICoE project exploring modular medical vision foundation models centered on data efficiency and trustworthiness." }
+    ],
+    journeys: [
+      { key: "education", label: "ACADEMIC JOURNEY", description: "From electronics and electrical engineering to AI and clinical medical sciences." },
+      { key: "teaching", label: "LEARNING TOGETHER", description: "Supporting interdisciplinary courses, and learning alongside students." },
+      { key: "activities", label: "BEYOND THE LAB", description: "Music, sports, and communities: exploring life beyond research." }
+    ]
+  }
+};
+
+function renderDesign(lang, ui) {
+  const copy = designCopy[lang];
+  document.querySelectorAll("[data-copy]").forEach((element) => {
+    const value = copy[element.dataset.copy];
+    if (typeof value === "string") {
+      element.innerHTML = escapeHtml(value).replaceAll("&lt;br&gt;", "<br>");
+    }
+  });
+  document.querySelectorAll("[data-footer-nav]").forEach((link) => {
+    link.textContent = ui.nav[link.dataset.footerNav];
+  });
+  document.querySelectorAll("[data-site-email]").forEach((link) => {
+    link.textContent = ui.contact.email;
+    link.href = `mailto:${ui.contact.email}`;
+  });
+  document.querySelectorAll("[data-site-github]").forEach((link) => {
+    link.href = ui.contact.githubHref;
+  });
+  const research = document.getElementById("research-cards");
+  if (research) {
+    research.innerHTML = copy.research.map((item, index) => `
+      <article class="research-card reveal">
+        <div class="research-figure" aria-hidden="true"><span class="figure-number">0${index + 1}</span><svg viewBox="0 0 240 200"><use href="assets/research-icons.svg#${item.icon}"></use></svg></div>
+        <h3>${escapeHtml(item.title)}</h3><p class="research-label">${escapeHtml(item.label)}</p><p>${escapeHtml(item.description)}</p>
+      </article>
+    `).join("");
+  }
+  const selected = document.getElementById("selected-publications");
+  if (selected) {
+    selected.innerHTML = ui.publications.items.slice(0, 2).map((item, index) => {
+      const link = item.links[0];
+      return `<article class="selected-item reveal"><span class="selected-year">${index === 0 ? "2026" : "2025"}</span><div><p class="paper-type">${escapeHtml(item.kind)}</p><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.venue)} · ${escapeHtml(item.role)}</p></div><a href="${escapeHtml(link ? link.href : "publications.html")}">${link ? copy.readWork : copy.viewWork}</a></article>`;
+    }).join("");
+  }
+  const journeys = document.getElementById("journey-links");
+  if (journeys) {
+    journeys.innerHTML = copy.journeys.map((item) => `<a class="journey-card reveal" href="${item.key}.html"><span>${item.label}</span><span class="journey-arrow" aria-hidden="true">↗</span><h3>${escapeHtml(ui.nav[item.key])}</h3><p>${escapeHtml(item.description)}</p></a>`).join("");
+  }
+  const menu = document.querySelector(".menu-toggle");
+  if (menu) {
+    menu.setAttribute("aria-label", menu.getAttribute("aria-expanded") === "true" ? copy.menuClose : copy.menuOpen);
+  }
+}
 
 function escapeHtml(text) {
   return String(text)
@@ -770,6 +939,7 @@ function bindTiltCards() {
 
 function unlockSite(immediate = false) {
   body.classList.remove("is-locked");
+  document.querySelectorAll(".site-header, main, .site-footer").forEach((element) => { element.inert = false; });
 
   if (intro) {
     if (immediate) {
@@ -784,6 +954,9 @@ function unlockSite(immediate = false) {
 
   setupRevealObserver();
   bindTiltCards();
+  if (!immediate) {
+    document.getElementById("main")?.focus({ preventScroll: true });
+  }
 }
 
 function renderSite(lang) {
@@ -863,6 +1036,7 @@ function renderSite(lang) {
 
   const year = String(new Date().getFullYear());
   setText("footer-text", ui.footer.replace("{year}", year));
+  renderDesign(lang, ui);
 
   setLanguageButtons(lang);
   updateThemeButtons(lang);
@@ -889,6 +1063,9 @@ renderSite(currentLanguage);
 
 if (!intro || prefersReducedMotion || getStoredValue(INTRO_KEY) === "1") {
   unlockSite(true);
+} else {
+  document.querySelectorAll(".site-header, main, .site-footer").forEach((element) => { element.inert = true; });
+  intro.querySelector("[data-lang-choice]")?.focus();
 }
 
 document.querySelectorAll("[data-set-lang]").forEach((button) => {
@@ -936,8 +1113,51 @@ if (enterBtn) {
   });
 }
 
+const menuButton = document.querySelector(".menu-toggle");
+const siteNavigation = document.getElementById("site-nav");
+
+function closeNavigation() {
+  siteNavigation?.classList.remove("is-open");
+  menuButton?.setAttribute("aria-expanded", "false");
+  menuButton?.setAttribute("aria-label", designCopy[currentLanguage].menuOpen);
+}
+
+menuButton?.addEventListener("click", () => {
+  const isOpen = menuButton.getAttribute("aria-expanded") !== "true";
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  menuButton.setAttribute("aria-label", isOpen ? designCopy[currentLanguage].menuClose : designCopy[currentLanguage].menuOpen);
+  siteNavigation?.classList.toggle("is-open", isOpen);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menuButton?.getAttribute("aria-expanded") === "true") {
+    closeNavigation();
+    menuButton.focus();
+  }
+  if (event.key === "Tab" && body.classList.contains("is-locked") && intro) {
+    const controls = [...intro.querySelectorAll("button")];
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".site-header")) {
+    closeNavigation();
+  }
+});
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1160) { closeNavigation(); }
+});
+
 if (cursorGlow && !prefersReducedMotion) {
   window.addEventListener("pointermove", (event) => {
+    if (event.pointerType === "touch") { return; }
     cursorGlow.style.opacity = "1";
     cursorGlow.style.left = `${event.clientX}px`;
     cursorGlow.style.top = `${event.clientY}px`;
