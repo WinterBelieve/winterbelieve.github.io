@@ -87,7 +87,7 @@ const content = {
       secondary: "聯絡方式",
       metrics: [
         { value: "4", label: "學術成果（論文、Workshop、碩論）" },
-        { value: "12+", label: "課程 TA 支援經驗" },
+        { value: "14+", label: "課程 TA 支援經驗" },
         { value: "2", label: "研究助理職務（校內與醫院）" }
       ]
     },
@@ -217,7 +217,9 @@ const content = {
         { term: "博二上", course: "智慧運算技術導論（英文授課）", audience: "AI 碩士班", instructor: "林桂傑講座教授" },
         { term: "博二上", course: "機器學習（支援）", audience: "人工智慧學系大二", instructor: "楊智淵助理教授" },
         { term: "博二上", course: "醫學影像處理（支援）", audience: "AI 學系碩士班、健康數據所", instructor: "許艾伶助理教授" },
-        { term: "博二下", course: "智慧運算技術導論", audience: "AIMD（醫學系、中醫系）", instructor: "林桂傑講座教授" }
+        { term: "博二下", course: "智慧運算技術導論", audience: "AIMD（醫學系、中醫系）", instructor: "林桂傑講座教授" },
+        { term: "博三上", course: "智慧方法概論", audience: "AI 碩士班、健康數據所", instructor: "林桂傑講座教授" },
+        { term: "博三上", course: "智慧運算技術導論（英文授課）", audience: "AI 博士班、臨醫所 AI 組博士班", instructor: "林桂傑講座教授" }
       ]
     },
     activities: {
@@ -279,7 +281,7 @@ const content = {
       secondary: "Contact",
       metrics: [
         { value: "4", label: "Academic outputs (thesis, conference, workshop)" },
-        { value: "12+", label: "Teaching assistant assignments" },
+        { value: "14+", label: "Teaching assistant assignments" },
         { value: "2", label: "Research assistant positions" }
       ]
     },
@@ -409,7 +411,9 @@ const content = {
         { term: "PhD Year 2 Fall", course: "Introduction to Intelligent Computing Technologies (English-taught)", audience: "AI Master's Program", instructor: "Chair Prof. Kwei-Jay Lin" },
         { term: "PhD Year 2 Fall", course: "Machine Learning (Support TA)", audience: "Department of AI, Sophomore Undergraduate", instructor: "Asst. Prof. Chih-Yuan Yang" },
         { term: "PhD Year 2 Fall", course: "Medical Image Processing (Support TA)", audience: "AI Master's Program and Institute of Health Data", instructor: "Asst. Prof. Ai-Ling Hsu" },
-        { term: "PhD Year 2 Spring", course: "Introduction to Intelligent Computing Technologies", audience: "AIMD, School of Medicine and School of Chinese Medicine", instructor: "Chair Prof. Kwei-Jay Lin" }
+        { term: "PhD Year 2 Spring", course: "Introduction to Intelligent Computing Technologies", audience: "AIMD, School of Medicine and School of Chinese Medicine", instructor: "Chair Prof. Kwei-Jay Lin" },
+        { term: "PhD Year 3 Fall", course: "Introduction to Intelligent Methods", audience: "AI Master's Program and Institute of Health Data Science", instructor: "Chair Prof. Kwei-Jay Lin" },
+        { term: "PhD Year 3 Fall", course: "Introduction to Intelligent Computing Technologies (English-taught)", audience: "AI PhD Program and Division of AI in Clinical Medical Sciences PhD Program", instructor: "Chair Prof. Kwei-Jay Lin" }
       ]
     },
     activities: {
