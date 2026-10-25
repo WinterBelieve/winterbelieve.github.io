@@ -50,8 +50,11 @@ const VIEWER_UI = {
     fitWidthHint: "等比例放大至畫面寬度，可捲動閱讀",
     reader: "文件閱讀區",
     pagination: "文件翻頁",
+    jumpLabel: "跳至頁碼",
+    jumpButton: "前往",
+    invalidPage: (total) => `請輸入 1 到 ${total} 之間的整數頁碼。`,
     loading: "載入文件中...",
-    error: "無法在此裝置內嵌顯示文件，請改用桌機瀏覽。",
+    error: "文件載入失敗，請檢查網路連線後重新整理。",
     page: (current, total) => `第 ${current} / ${total} 頁`
   },
   en: {
@@ -69,14 +72,19 @@ const VIEWER_UI = {
     fitWidthHint: "Scale to the screen width; scroll to read",
     reader: "Document reader",
     pagination: "Document pagination",
+    jumpLabel: "Go to page",
+    jumpButton: "Go",
+    invalidPage: (total) => `Enter a whole page number between 1 and ${total}.`,
     loading: "Loading document...",
-    error: "Unable to render this document inline on this device.",
+    error: "Unable to load the document. Check your connection and refresh the page.",
     page: (current, total) => `Page ${current} / ${total}`
   }
 };
 
-const PDF_JS_VERSION = "3.11.174";
-const PDF_WORKER_URL = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDF_JS_VERSION}/build/pdf.worker.min.js`;
+const PDF_JS_VERSION = "6.4.299";
+const PDF_ASSET_URL = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDF_JS_VERSION}/`;
+const PDF_MODULE_URL = `${PDF_ASSET_URL}legacy/build/pdf.min.mjs`;
+const PDF_WORKER_URL = `${PDF_ASSET_URL}legacy/build/pdf.worker.min.mjs`;
 
 const viewerState = {
   currentDocKey: "",
@@ -174,6 +182,22 @@ function updatePaginationUi(lang) {
   const ui = getUiByLang(lang);
   setNodeText("pdf-prev", ui.prev);
   setNodeText("pdf-next", ui.next);
+  setNodeText("pdf-jump-label", ui.jumpLabel);
+  setNodeText("pdf-jump-button", ui.jumpButton);
+
+  const pageInput = document.getElementById("pdf-page-input");
+  if (pageInput) {
+    pageInput.disabled = !viewerState.pdfDoc;
+    pageInput.max = String(viewerState.totalPages || 1);
+  }
+  const jumpButton = document.getElementById("pdf-jump-button");
+  if (jumpButton) {
+    jumpButton.disabled = !viewerState.pdfDoc;
+  }
+  const jumpError = document.getElementById("pdf-jump-error");
+  if (jumpError && !jumpError.hidden) {
+    jumpError.textContent = ui.invalidPage(viewerState.totalPages);
+  }
 
   const indicator = document.getElementById("pdf-page-indicator");
   if (indicator) {
@@ -356,12 +380,8 @@ async function renderCurrentPage() {
     canvas.style.width = `${Math.floor(viewport.width)}px`;
     canvas.style.height = "auto";
 
-    const context = canvas.getContext("2d");
-    if (!context) {
-      return;
-    }
     renderTask = page.render({
-      canvasContext: context,
+      canvas,
       viewport,
       transform: outputScale === 1 ? null : [outputScale, 0, 0, outputScale, 0, 0]
     });
@@ -388,24 +408,28 @@ async function loadDocument(docKey, filePath) {
   const lang = readViewerLang();
   const ui = getUiByLang(lang);
 
-  if (!window.pdfjsLib) {
-    setErrorState(ui.error);
-    return;
-  }
-
-  window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDF_WORKER_URL;
-
   viewerState.renderToken += 1;
   viewerState.currentDocKey = docKey;
   viewerState.pdfDoc = null;
   viewerState.currentPage = 1;
   viewerState.totalPages = 0;
+  document.getElementById("pdf-page-input").value = "";
+  clearJumpError();
   updatePaginationUi(lang);
   updateReaderUi(lang);
   setLoadingState(ui.loading);
 
   try {
-    const loadingTask = window.pdfjsLib.getDocument({ url: encodeURI(filePath) });
+    // Keep the library, worker, fonts, and decoders pinned to the same release.
+    const pdfjsLib = await import(PDF_MODULE_URL);
+    pdfjsLib.GlobalWorkerOptions.workerSrc = PDF_WORKER_URL;
+    const loadingTask = pdfjsLib.getDocument({
+      url: encodeURI(filePath),
+      cMapUrl: `${PDF_ASSET_URL}cmaps/`,
+      cMapPacked: true,
+      standardFontDataUrl: `${PDF_ASSET_URL}standard_fonts/`,
+      wasmUrl: `${PDF_ASSET_URL}wasm/`
+    });
     const pdfDoc = await loadingTask.promise;
     if (viewerState.currentDocKey !== docKey) {
       return;
@@ -414,10 +438,11 @@ async function loadDocument(docKey, filePath) {
     viewerState.pdfDoc = pdfDoc;
     viewerState.totalPages = pdfDoc.numPages;
     viewerState.currentPage = 1;
-    updatePaginationUi(lang);
+    document.getElementById("pdf-page-input").value = "1";
+    updatePaginationUi(readViewerLang());
     await renderCurrentPage();
   } catch {
-    setErrorState(ui.error);
+    setErrorState(getUiByLang(readViewerLang()).error);
   }
 }
 
@@ -433,6 +458,8 @@ function renderViewerPage() {
   setNodeText("viewer-title", copy.title);
   setNodeText("viewer-meta", copy.meta);
   setNodeText("viewer-back", ui.back);
+  setNodeText("pdf-loading", ui.loading);
+  setNodeText("pdf-error", ui.error);
 
   updatePaginationUi(lang);
   updateReaderUi(lang);
@@ -443,21 +470,53 @@ function renderViewerPage() {
   }
 }
 
-function turnPage(step) {
-  if (!viewerState.pdfDoc) {
+function goToPage(pageNumber) {
+  if (!viewerState.pdfDoc || !Number.isInteger(pageNumber) || pageNumber < 1 || pageNumber > viewerState.totalPages) {
     return;
   }
 
-  const nextPage = viewerState.currentPage + step;
-  if (nextPage < 1 || nextPage > viewerState.totalPages) {
-    return;
+  viewerState.currentPage = pageNumber;
+  const pageInput = document.getElementById("pdf-page-input");
+  if (pageInput) {
+    pageInput.value = String(pageNumber);
   }
-
-  viewerState.currentPage = nextPage;
+  clearJumpError();
   document.querySelector(".doc-shell")?.scrollTo(0, 0);
   updatePaginationUi(readViewerLang());
   renderCurrentPage();
 }
+
+function turnPage(step) {
+  goToPage(viewerState.currentPage + step);
+}
+
+function clearJumpError() {
+  document.getElementById("pdf-page-input")?.removeAttribute("aria-invalid");
+  const error = document.getElementById("pdf-jump-error");
+  if (error) {
+    error.hidden = true;
+    error.textContent = "";
+  }
+}
+
+document.getElementById("pdf-jump-form")?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!viewerState.pdfDoc) {
+    return;
+  }
+  const input = document.getElementById("pdf-page-input");
+  const pageNumber = input.valueAsNumber;
+  if (!Number.isInteger(pageNumber) || pageNumber < 1 || pageNumber > viewerState.totalPages) {
+    input.setAttribute("aria-invalid", "true");
+    const error = document.getElementById("pdf-jump-error");
+    error.textContent = getUiByLang(readViewerLang()).invalidPage(viewerState.totalPages);
+    error.hidden = false;
+    input.focus();
+    return;
+  }
+  goToPage(pageNumber);
+});
+document.getElementById("pdf-page-input")?.addEventListener("input", clearJumpError);
 
 const prevBtn = document.getElementById("pdf-prev");
 if (prevBtn) {
@@ -486,7 +545,7 @@ document.addEventListener("keydown", (event) => {
     event.preventDefault();
     toggleReaderFullscreen();
   } else if (event.key === "Tab" && viewerState.overlayFullscreen) {
-    const controls = [...document.querySelectorAll("#pdf-reader button, #pdf-reader .doc-shell")].filter((node) => !node.hidden && !node.disabled);
+    const controls = [...document.querySelectorAll("#pdf-reader button, #pdf-reader input, #pdf-reader .doc-shell")].filter((node) => !node.hidden && !node.disabled);
     const first = controls[0];
     const last = controls[controls.length - 1];
     if (event.shiftKey && document.activeElement === first) {
@@ -496,7 +555,7 @@ document.addEventListener("keydown", (event) => {
       event.preventDefault();
       first?.focus();
     }
-  } else if ((event.key === "ArrowLeft" || event.key === "ArrowRight") && !event.ctrlKey && !event.metaKey && !event.altKey && !event.shiftKey) {
+  } else if ((event.key === "ArrowLeft" || event.key === "ArrowRight") && !event.target.closest("input, textarea, select, [contenteditable]") && !event.ctrlKey && !event.metaKey && !event.altKey && !event.shiftKey) {
     event.preventDefault();
     turnPage(event.key === "ArrowRight" ? 1 : -1);
   }

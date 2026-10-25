@@ -49,7 +49,19 @@
           </button>
         </div>
         <div class="doc-shell reveal" tabindex="0"><div id="pdf-stage" class="pdf-stage" aria-live="polite"><p id="pdf-loading" class="pdf-loading">Loading document...</p><canvas id="pdf-canvas" class="pdf-canvas" hidden></canvas><p id="pdf-error" class="pdf-error" hidden></p></div></div>
-        <div id="pdf-controls" class="pdf-controls" aria-label="Document pagination"><button id="pdf-prev" class="btn btn-secondary pdf-nav-btn" type="button">Previous</button><span id="pdf-page-indicator" class="pdf-page-indicator"></span><button id="pdf-next" class="btn btn-secondary pdf-nav-btn" type="button">Next</button></div>
+        <div id="pdf-controls" class="pdf-controls" aria-label="Document pagination">
+          <div class="pdf-page-navigation">
+            <button id="pdf-prev" class="btn btn-secondary pdf-nav-btn" type="button" disabled>Previous</button>
+            <span id="pdf-page-indicator" class="pdf-page-indicator" role="status"></span>
+            <button id="pdf-next" class="btn btn-secondary pdf-nav-btn" type="button" disabled>Next</button>
+          </div>
+          <form id="pdf-jump-form" class="pdf-jump-form" novalidate>
+            <label id="pdf-jump-label" for="pdf-page-input">跳至頁碼</label>
+            <input id="pdf-page-input" class="pdf-page-input" type="number" inputmode="numeric" min="1" step="1" required disabled aria-describedby="pdf-page-indicator pdf-jump-error">
+            <button id="pdf-jump-button" class="btn btn-secondary pdf-nav-btn" type="submit" disabled>前往</button>
+          </form>
+          <p id="pdf-jump-error" class="pdf-jump-error" role="alert" hidden></p>
+        </div>
       </div>
       <div class="viewer-actions"><a id="viewer-back" class="text-link" href="publications.html">Back to Publications</a></div>
     </section>
@@ -63,7 +75,6 @@
     <div class="footer-bottom shell"><p id="footer-text"></p><a href="#main" data-copy="backTop">回到頂端 ↑</a></div>
   </footer>
   <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script src="viewer.js"></script>
 </body>
 </html>

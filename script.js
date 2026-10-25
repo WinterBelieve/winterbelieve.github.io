@@ -229,30 +229,13 @@ const content = {
         { stage: "碩士班", clubs: ["鋼琴社"] },
         {
           stage: "博士班",
-          clubs: [
-            "國醫社",
-            "劍道社",
-            "天文社",
-            "圍棋社",
-            "鋼琴社",
-            "桌遊社",
-            "桌球社",
-            "漫研社",
-            "網球社",
-            "羽球社",
-            "茶道社",
-            "人工智慧學系系學會",
-            "桃園校友會",
-            "熱舞社",
-            "登山社",
-            "自由搏擊社",
-            "資訊社",
-            "攝影社",
-            "烘焙社",
-            "創創社",
-            "蒲公英工作隊",
-            "喵喵社",
-            "跆拳道社"
+          groups: [
+            { title: "公共類", clubs: ["人工智慧學系系學會"] },
+            { title: "地區類", clubs: ["桃園校友會"] },
+            { title: "音樂類", clubs: ["鋼琴社"] },
+            { title: "體育類", clubs: ["劍道社", "桌球社", "網球社", "羽球社", "熱舞社", "登山社", "自由搏擊社", "跆拳道社"] },
+            { title: "學藝類", clubs: ["國醫社", "天文社", "圍棋社", "桌遊社", "漫研社", "茶道社", "資訊社", "攝影社", "烘焙社", "創創社"] },
+            { title: "宗教服務類", clubs: ["蒲公英工作隊"] }
           ]
         }
       ]
@@ -290,7 +273,7 @@ const content = {
       tag: "Academic Profile",
       namePrimary: "Daniel Yuan",
       nameSecondary: "袁聖博",
-      title: "PhD in Graduate Institute of Clinical Medical Sciences, Division of Artificial Intelligence",
+      title: "PhD Student, Graduate Institute of Clinical Medical Sciences, Division of Artificial Intelligence",
       affiliation: "Chang Gung University | College of Medicine / College of Intelligent Computing",
       primary: "View Publications",
       secondary: "Contact",
@@ -438,30 +421,13 @@ const content = {
         { stage: "Master's Program", clubs: ["Piano Club"] },
         {
           stage: "PhD Program",
-          clubs: [
-            "Chinese Medicine Club",
-            "Kendo Club",
-            "Astronomy Club",
-            "Go Club",
-            "Piano Club",
-            "Board Game Club",
-            "Table Tennis Club",
-            "Manga and Anime Club",
-            "Tennis Club",
-            "Badminton Club",
-            "Teaism Club",
-            "Department of Artificial Intelligence Student Association",
-            "Taoyuan Alumni Association",
-            "Dance Club",
-            "Hiking Club",
-            "Kickboxing Club",
-            "Information Club",
-            "Photography Club",
-            "Baking Club",
-            "Chuang Chuang Club",
-            "Dandelion Team",
-            "Meow Meow Club",
-            "Taekwondo Club"
+          groups: [
+            { title: "Departmental Associations", clubs: ["Department of Artificial Intelligence Student Association"] },
+            { title: "Regional Associations", clubs: ["Taoyuan Alumni Association"] },
+            { title: "Music", clubs: ["Piano Club"] },
+            { title: "Sports", clubs: ["Kendo Club", "Table Tennis Club", "Tennis Club", "Badminton Team", "Dance Club", "Mountain Climbing Club", "Kickboxing Club", "Taekwondo Club"] },
+            { title: "Academic & Arts", clubs: ["Chinese Medical Research Society", "Astronomy Club", "Go Club", "Board Game Club", "Comics Study Club", "Tea Ceremony Club", "Information Agency", "Photography Club", "Baking Club", "CGU Innovation Club"] },
+            { title: "Religious & Service", clubs: ["Dandelions Service Team"] }
           ]
         }
       ]
@@ -822,12 +788,17 @@ function renderActivities(items) {
     return;
   }
 
+  const renderClubs = (clubs) => `<ul class="club-list">${clubs.map((club) => `<li>${escapeHtml(club)}</li>`).join("")}</ul>`;
+
   container.innerHTML = items.map((item) => `
-    <article class="club-card reveal">
+    <article class="club-card${item.groups ? " club-card-grouped" : ""} reveal">
       <h3>${escapeHtml(item.stage)}</h3>
-      <ul class="club-list">
-        ${item.clubs.map((club) => `<li>${escapeHtml(club)}</li>`).join("")}
-      </ul>
+      ${item.groups ? `<div class="club-groups">${item.groups.map((group) => `
+        <section class="club-group">
+          <h4>${escapeHtml(group.title)}</h4>
+          ${renderClubs(group.clubs)}
+        </section>
+      `).join("")}</div>` : renderClubs(item.clubs)}
     </article>
   `).join("");
 }
