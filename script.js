@@ -81,7 +81,7 @@ const content = {
       tag: "學術個人網站",
       namePrimary: "袁聖博",
       nameSecondary: "Daniel Yuan",
-      title: "長庚大學臨床醫學研究所人工智慧組博士生",
+      title: "臨床醫學（理學）博士生",
       affiliation: "長庚大學｜醫學院臨床醫學研究所 / 智慧運算學院人工智慧研究所",
       primary: "查看學術成果",
       secondary: "聯絡方式",
@@ -169,6 +169,7 @@ const content = {
           title: "Cross-Dataset Comparison of Pretrained CV Backbones for Echocardiography Segmentation",
           venue: "IIAI AAI 2026 (SCAI 2026)｜日本",
           role: "第一作者口頭發表（First Author, Oral Presentation）",
+          description: "比較預訓練電腦視覺骨幹於不同心臟超音波資料集上的分割表現，聚焦跨資料集評估。",
           links: []
         },
         {
@@ -176,6 +177,7 @@ const content = {
           title: "Self-Supervised Masked Autoencoders for High-Accuracy Left Ventricle Segmentation in Echocardiography",
           venue: "ACML 2025 Workshop - Medical AI Workshop: Making AI Safe and Healthy (MASH)",
           role: "第一作者口頭發表（First Author, Oral Presentation）",
+          description: "以自監督遮罩自編碼器（Masked Autoencoders）為主軸，開發心臟超音波影像的左心室分割模型。",
           links: [
             { label: "開啟 Workshop 展示頁", href: "viewer.html?doc=acml2025" }
           ]
@@ -185,6 +187,7 @@ const content = {
           title: "使用全腦分割影像提升神經膠質瘤復發樣態預測準確度",
           venue: "長庚大學 碩士論文",
           role: "碩士論文",
+          description: "研究如何使用全腦分割影像，提升神經膠質瘤復發樣態的預測準確度；以腦部 MRI 分析連結影像資訊與預測任務。",
           links: [
             { label: "開啟碩論展示頁", href: "viewer.html?doc=thesis" }
           ]
@@ -194,6 +197,7 @@ const content = {
           title: "Application of Incremental Learning to Medical Image Segmentation of Glioblastoma Multiforme",
           venue: "NST2024",
           role: "第一作者（First Author）",
+          description: "探討增量學習在膠質母細胞瘤醫學影像分割中的應用，是腦部 MRI 研究經驗的一部分。",
           links: [
             { label: "開啟論文展示頁", href: "viewer.html?doc=nst2024" }
           ]
@@ -275,7 +279,7 @@ const content = {
       tag: "Academic Profile",
       namePrimary: "Daniel Yuan",
       nameSecondary: "袁聖博",
-      title: "PhD Student, Graduate Institute of Clinical Medical Sciences, Division of Artificial Intelligence",
+      title: "PhD Student in Clinical Medical Sciences",
       affiliation: "Chang Gung University | College of Medicine / College of Intelligent Computing",
       primary: "View Publications",
       secondary: "Contact",
@@ -363,6 +367,7 @@ const content = {
           title: "Cross-Dataset Comparison of Pretrained CV Backbones for Echocardiography Segmentation",
           venue: "IIAI AAI 2026 (SCAI 2026) | Japan",
           role: "First Author, Oral Presentation",
+          description: "A cross-dataset comparison of pretrained computer vision backbones for echocardiography segmentation, focusing on how segmentation performance varies across datasets.",
           links: []
         },
         {
@@ -370,6 +375,7 @@ const content = {
           title: "Self-Supervised Masked Autoencoders for High-Accuracy Left Ventricle Segmentation in Echocardiography",
           venue: "ACML 2025 Workshop - Medical AI Workshop: Making AI Safe and Healthy (MASH)",
           role: "First Author, Oral Presentation",
+          description: "Development of a left ventricle segmentation model for echocardiography using self-supervised masked autoencoders.",
           links: [
             { label: "Open Workshop Viewer", href: "viewer.html?doc=acml2025" }
           ]
@@ -379,6 +385,7 @@ const content = {
           title: "Enhancing the Prediction Accuracy of Glioblastoma Recurrence Patterns Using Whole Brain Segmentation Images",
           venue: "Master's Thesis, Chang Gung University",
           role: "Master's Thesis",
+          description: "An investigation of whole-brain segmentation images for improving the prediction of glioblastoma recurrence patterns, connecting brain MRI analysis with a prediction task.",
           links: [
             { label: "Open Thesis Viewer", href: "viewer.html?doc=thesis" }
           ]
@@ -388,6 +395,7 @@ const content = {
           title: "Application of Incremental Learning to Medical Image Segmentation of Glioblastoma Multiforme",
           venue: "NST2024",
           role: "First Author",
+          description: "An exploration of incremental learning for medical image segmentation of glioblastoma multiforme, forming part of his work in brain MRI analysis.",
           links: [
             { label: "Open Paper Viewer", href: "viewer.html?doc=nst2024" }
           ]
@@ -454,12 +462,22 @@ const designCopy = {
   zh: {
     skip: "跳至主要內容",
     brandSubtitle: "醫學影像・人工智慧",
-    heroHeadline: "探索醫學影像<br>的更多可能",
-    heroDeck: "從腦部 MRI 到心臟超音波，<br>以人工智慧，理解影像背後的訊息。",
+    heroProgram: "長庚大學 · 臨床醫學研究所人工智慧組博士班 · 博士三年級",
+    heroDeck: "研究腦部 MRI 與心臟超音波影像，<br>關注影像分割、自監督學習與跨資料集模型評估。",
+    heroContact: "聯絡我 ↗",
     heroScroll: "往下探索 ↓",
-    aboutAside: "影像、學習與臨床<br>在研究中交會。",
-    researchTitle: "三個視角，一條研究之路",
-    researchDeck: "從影像分割出發，探索資料效率與可信賴的醫療人工智慧。",
+    profileBandTitle: "研究領域",
+    profileBandHint: "Medical Imaging & AI",
+    profileBandTopics: "腦部 MRI · 心臟超音波 · 資料效率與可信賴 AI",
+    currentWorkLabel: "目前的研究連結",
+    aboutAside: "長庚大學<br>長庚醫院心臟內科<br>Taiwan AICoE 研究計畫",
+    researchTitle: "研究主題與進行中的工作",
+    researchDeck: "從腦部影像到心臟超音波，連結過去的研究與目前關注的問題。",
+    datasetDisclaimer: "下列醫學影像各取自一位公開資料集個案，僅用於介紹影像模態，並非本人蒐集的影像或模型預測結果。",
+    datasetSourcesTitle: "公開影像範例：來源、處理與授權",
+    sourceLinks: "資料來源",
+    sourceCitation: "資料與論文引用",
+    provenanceLink: "完整引用與處理紀錄",
     selectedTitle: "研究，留下的足跡",
     allPublications: "所有學術成果 ↗",
     readWork: "閱讀成果 ↗",
@@ -478,9 +496,9 @@ const designCopy = {
     menuOpen: "開啟選單",
     menuClose: "關閉選單",
     research: [
-      { icon: "brain", title: "腦部 MRI", label: "BRAIN MRI", description: "曾從事膠質母細胞瘤復發樣態預測，運用全腦分割影像與增量學習，探索醫學影像分析。" },
-      { icon: "echo", title: "心臟超音波", label: "ECHOCARDIOGRAPHY", description: "開發自監督學習的左心室分割模型，並比較預訓練視覺骨幹在不同資料集上的表現。" },
-      { icon: "network", title: "可信賴醫療 AI", label: "TRUSTWORTHY MEDICAL AI", description: "參與 Taiwan AICoE 研究計畫，探索以資料效率與可信賴為核心的模組化醫療視覺基礎模型。" }
+      { dataset: "brain", title: "腦部 MRI", label: "BRAIN MRI", description: "曾從事膠質母細胞瘤復發樣態預測。碩士研究以全腦分割影像為基礎，另在 NST 2024 探討增量學習於腦腫瘤影像分割的應用。", topics: ["全腦分割與復發樣態預測", "增量學習與腦腫瘤分割"], href: "viewer.html?doc=thesis", linkLabel: "閱讀碩士論文 ↗" },
+      { dataset: "echo", title: "心臟超音波", label: "ECHOCARDIOGRAPHY", description: "進行自監督學習的左心室分割模型開發，並比較預訓練電腦視覺骨幹於不同心臟超音波資料集上的分割表現。", topics: ["自監督遮罩自編碼器（MAE）", "跨資料集模型評估"], href: "viewer.html?doc=acml2025", linkLabel: "閱讀 Workshop 簡報 ↗" },
+      { title: "可信賴醫療 AI", label: "TAIWAN AICOE · 114 年度", description: "參與「超越 Scaling 法則：一個以資料效率與可信賴為核心的模組化醫療視覺基礎模型架構」研究計畫，關注醫療視覺模型的資料效率、模組化與可信賴性。", topics: ["資料效率與模組化設計", "可信賴醫療視覺基礎模型"], href: "experience.html", linkLabel: "查看研究計畫與經歷 ↗", figureTitle: "Beyond<br>Scaling Laws", figureTopics: ["資料效率", "模組化", "可信賴"], caption: "研究計畫主題，不代表已完成的模型架構。" }
     ],
     journeys: [
       { key: "education", label: "ACADEMIC JOURNEY", description: "從電子、電機，到人工智慧與臨床醫學。" },
@@ -491,12 +509,22 @@ const designCopy = {
   en: {
     skip: "Skip to main content",
     brandSubtitle: "Medical imaging & AI",
-    heroHeadline: "Seeing more.<br>Understanding more.",
-    heroDeck: "From brain MRI to echocardiography,<br>exploring medical images through artificial intelligence.",
+    heroProgram: "Chang Gung University · Graduate Institute of Clinical Medical Sciences, Division of Artificial Intelligence · PhD Year 3",
+    heroDeck: "Brain MRI and echocardiography research,<br>with a focus on segmentation, self-supervised learning, and cross-dataset evaluation.",
+    heroContact: "Get in touch ↗",
     heroScroll: "Explore below ↓",
-    aboutAside: "Where imaging,<br>learning, and clinical<br>research meet.",
-    researchTitle: "Three perspectives. One research journey.",
-    researchDeck: "From image segmentation to data-efficient, trustworthy medical AI.",
+    profileBandTitle: "Research Focus",
+    profileBandHint: "Medical Imaging & AI",
+    profileBandTopics: "Brain MRI · Echocardiography · Data-efficient, trustworthy AI",
+    currentWorkLabel: "Research Connections",
+    aboutAside: "Chang Gung University<br>Cardiology, Chang Gung Memorial Hospital<br>Taiwan AICoE project",
+    researchTitle: "Research Topics & Current Work",
+    researchDeck: "Connecting previous work in brain imaging with current questions in echocardiography and medical AI.",
+    datasetDisclaimer: "Each medical image shows one de-identified public dataset case, illustrating the imaging modality only. These are not images acquired by me or predictions from my models.",
+    datasetSourcesTitle: "Public image examples: sources, processing & licenses",
+    sourceLinks: "Dataset source",
+    sourceCitation: "Data & publication citation",
+    provenanceLink: "Full attribution & processing record",
     selectedTitle: "Research, in progress and in print.",
     allPublications: "All publications ↗",
     readWork: "Read work ↗",
@@ -515,9 +543,9 @@ const designCopy = {
     menuOpen: "Open navigation",
     menuClose: "Close navigation",
     research: [
-      { icon: "brain", title: "Brain MRI", label: "BRAIN MRI", description: "Previous work on glioblastoma recurrence pattern prediction, whole-brain segmentation, and incremental learning for medical image analysis." },
-      { icon: "echo", title: "Echocardiography", label: "CARDIAC ULTRASOUND", description: "Self-supervised left ventricle segmentation and cross-dataset comparison of pretrained computer vision backbones." },
-      { icon: "network", title: "Trustworthy medical AI", label: "FOUNDATION MODELS", description: "Contributing to a Taiwan AICoE project exploring modular medical vision foundation models centered on data efficiency and trustworthiness." }
+      { dataset: "brain", title: "Brain MRI", label: "BRAIN MRI", description: "Previous work on glioblastoma recurrence pattern prediction using whole-brain segmentation images, alongside an NST 2024 study of incremental learning for brain tumor image segmentation.", topics: ["Whole-brain segmentation and recurrence patterns", "Incremental learning for tumor segmentation"], href: "viewer.html?doc=thesis", linkLabel: "Read master's thesis ↗" },
+      { dataset: "echo", title: "Echocardiography", label: "CARDIAC ULTRASOUND", description: "Developing self-supervised left ventricle segmentation models and comparing pretrained computer vision backbones across echocardiography datasets.", topics: ["Self-supervised masked autoencoders (MAE)", "Cross-dataset model evaluation"], href: "viewer.html?doc=acml2025", linkLabel: "Read workshop slides ↗" },
+      { title: "Trustworthy medical AI", label: "TAIWAN AICOE · 2025", description: "Participation in the project Beyond Scaling Laws: A Modular Medical Vision Foundation Model Architecture Centered on Data Efficiency and Trustworthiness, focusing on these three themes in medical vision.", topics: ["Data efficiency and modular design", "Trustworthy medical vision foundation models"], href: "experience.html", linkLabel: "View project & experience ↗", figureTitle: "Beyond<br>Scaling Laws", figureTopics: ["Data efficiency", "Modularity", "Trustworthiness"], caption: "Project themes, not a completed model architecture." }
     ],
     journeys: [
       { key: "education", label: "ACADEMIC JOURNEY", description: "From electronics and electrical engineering to AI and clinical medical sciences." },
@@ -526,6 +554,89 @@ const designCopy = {
     ]
   }
 };
+
+const datasetExamples = {
+  brain: {
+    image: "assets/data-examples/upenn-gbm-00002-flair.png",
+    width: 192,
+    height: 256,
+    name: "TCIA UPENN-GBM",
+    subject: "UPENN-GBM-00002",
+    source: "https://www.cancerimagingarchive.net/collection/upenn-gbm/",
+    citation: "Bakas, S., Sako, C., Akbari, H., et al. (2021). Multi-parametric magnetic resonance imaging (mpMRI) scans for de novo Glioblastoma (GBM) patients from the University of Pennsylvania Health System (UPENN-GBM), Version 2. The Cancer Imaging Archive.",
+    citationUrl: "https://doi.org/10.7937/TCIA.709X-DN49",
+    license: "CC BY 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
+    termsUrl: "https://wiki.cancerimagingarchive.net/display/Public/Data+Usage+Policies+and+Restrictions",
+    zh: {
+      alt: "UPENN-GBM-00002 個案的腦部軸向 FLAIR MRI 切片，真實公開資料集影像，無分割疊圖。",
+      view: "軸向 FLAIR MRI",
+      processing: "自一組 FLAIR 影像中選取單張軸向切片，僅調整灰階顯示窗並轉為 PNG，未重採樣、生成影像細節或加上腫瘤分割標記。",
+      terms: "依 CC BY 4.0 提供，須保留來源、授權連結與修改說明，並遵循 TCIA 不得重新識別個案等使用規範。此圖不受本站保留所有權利的頁尾文字限制。",
+      termsLabel: "TCIA 資料使用規範"
+    },
+    en: {
+      alt: "Axial FLAIR brain MRI slice from public dataset subject UPENN-GBM-00002, without a segmentation overlay.",
+      view: "Axial FLAIR MRI",
+      processing: "One axial slice was selected from a FLAIR series and exported to PNG with grayscale display windowing only. No resampling, generated detail, or tumor segmentation overlay was applied.",
+      terms: "Provided under CC BY 4.0 with source, license link, and modification notice, subject to TCIA policies including no re-identification of participants. This image is excluded from the site's all-rights-reserved footer notice.",
+      termsLabel: "TCIA data usage policy"
+    }
+  },
+  echo: {
+    image: "assets/data-examples/ev9v-plax-example.jpg",
+    width: 320,
+    height: 240,
+    name: "EV9V",
+    subject: "PLHLA · Frame 0",
+    source: "https://huggingface.co/datasets/bgx666/EV9V",
+    citation: "Gou, B., Zhang, J., Xiong, J., He, T., et al. (2026). EV9V: Echocardiographic View 9 Varieties. Reference supplied by the dataset authors: Spatio-Temporal Fusion Model for Standard View Classification of Echocardiographic Videos.",
+    citationUrl: "https://huggingface.co/datasets/bgx666/EV9V/blob/main/README.md#citation",
+    license: "CC BY 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
+    zh: {
+      alt: "EV9V 公開資料集單一影片的胸骨旁長軸心臟超音波影格。",
+      view: "胸骨旁長軸（PLHLA）",
+      processing: "直接使用資料集中的單張原始 JPEG，未裁切、重採樣或修改像素。畫面中的儀器資訊與量測線來自原始影像，不是本人模型的輸出。",
+      terms: "資料集作者以 CC BY 4.0 發布，可在保留署名、來源及授權資訊下分享。這張影像僅用於介紹超音波模態，不作臨床診斷，也不適用本站的保留所有權利聲明。"
+    },
+    en: {
+      alt: "A parasternal long-axis echocardiography frame from one video in the public EV9V dataset.",
+      view: "Parasternal long axis (PLHLA)",
+      processing: "One original JPEG is used byte-for-byte, without cropping, resampling, or pixel changes. Scanner information and measurement lines belong to the source image, not to a model developed by the website author.",
+      terms: "Released by the dataset authors under CC BY 4.0, allowing sharing with credit, source and license information. This example illustrates the imaging modality only and is not for clinical diagnosis. The site's all-rights-reserved notice does not apply to this image."
+    }
+  }
+};
+
+function renderResearchFigure(item, lang) {
+  const sample = datasetExamples[item.dataset];
+  if (sample) {
+    const localized = sample[lang];
+    return `<figure class="research-visual">
+      <div class="research-figure research-figure--dataset"><img src="${sample.image}" width="${sample.width}" height="${sample.height}" alt="${escapeHtml(localized.alt)}" loading="lazy" decoding="async"></div>
+    </figure>`;
+  }
+  return `<figure class="research-visual">
+    <div class="research-figure research-figure--project"><span class="project-wordmark">Taiwan AICoE</span><strong>${escapeHtml(item.figureTitle).replaceAll("&lt;br&gt;", "<br>")}</strong><div class="project-topics">${item.figureTopics.map((topic) => `<span>${escapeHtml(topic)}</span>`).join("")}</div></div>
+  </figure>`;
+}
+
+function renderDatasetSources(lang, copy) {
+  const container = document.getElementById("dataset-source-notes");
+  if (!container) return;
+  container.innerHTML = Object.values(datasetExamples).map((sample) => {
+    const localized = sample[lang];
+    return `<article>
+      <h3>${sample.name}</h3>
+      <p class="source-subject">${sample.subject} · ${escapeHtml(localized.view)}</p>
+      <p>${escapeHtml(localized.processing)}</p>
+      <p>${escapeHtml(localized.terms)}</p>
+      <p class="source-citation">${escapeHtml(sample.citation)}</p>
+      <div class="source-links"><a href="${sample.source}">${copy.sourceLinks} ↗</a><a href="${sample.citationUrl}">${copy.sourceCitation} ↗</a><a href="${sample.licenseUrl}">${sample.license} ↗</a>${sample.termsUrl ? `<a href="${sample.termsUrl}">${localized.termsLabel} ↗</a>` : ""}</div>
+    </article>`;
+  }).join("") + copy.research.filter((item) => item.caption).map((item) => `<div class="project-source-note"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.caption)}</p></div>`).join("") + `<a class="source-record" href="assets/data-examples/ATTRIBUTION.md">${copy.provenanceLink} ↗</a>`;
+}
 
 function renderDesign(lang, ui) {
   const copy = designCopy[lang];
@@ -547,12 +658,15 @@ function renderDesign(lang, ui) {
   });
   const research = document.getElementById("research-cards");
   if (research) {
-    research.innerHTML = copy.research.map((item, index) => `
+    research.innerHTML = copy.research.map((item) => `
       <article class="research-card reveal">
-        <div class="research-figure" aria-hidden="true"><span class="figure-number">0${index + 1}</span><svg viewBox="0 0 240 200"><use href="assets/research-icons.svg#${item.icon}"></use></svg></div>
-        <h3>${escapeHtml(item.title)}</h3><p class="research-label">${escapeHtml(item.label)}</p><p>${escapeHtml(item.description)}</p>
+        ${renderResearchFigure(item, lang)}
+        <h3>${escapeHtml(item.title)}</h3><p class="research-label">${escapeHtml(item.label)}</p><p class="research-description">${escapeHtml(item.description)}</p>
+        <ul class="research-topics">${item.topics.map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
+        <a class="text-link research-link" href="${item.href}">${escapeHtml(item.linkLabel)}</a>
       </article>
     `).join("");
+    renderDatasetSources(lang, copy);
   }
   const selected = document.getElementById("selected-publications");
   if (selected) {
@@ -707,10 +821,9 @@ function renderEducation(items) {
     return;
   }
 
-  container.innerHTML = items.map((item, index) => `
+  container.innerHTML = items.map((item) => `
     <article class="timeline-item reveal">
       <div class="item-top">
-        <span class="item-index">${String(index + 1).padStart(2, "0")}</span>
         <h3>${escapeHtml(item.title)}</h3>
       </div>
       <p class="item-sub">${escapeHtml(item.subtitle)}</p>
@@ -725,10 +838,9 @@ function renderExperience(items) {
     return;
   }
 
-  container.innerHTML = items.map((item, index) => `
+  container.innerHTML = items.map((item) => `
     <article class="timeline-item reveal">
       <div class="item-top">
-        <span class="item-index">${String(index + 1).padStart(2, "0")}</span>
         <h3>${escapeHtml(item.title)}</h3>
       </div>
       ${item.period ? `<p class="item-sub">${escapeHtml(item.period)}</p>` : ""}
@@ -745,7 +857,7 @@ function renderPublications(items) {
     return;
   }
 
-  container.innerHTML = items.map((item, index) => {
+  container.innerHTML = items.map((item) => {
     const links = Array.isArray(item.links)
       ? item.links.map((link) => {
           const isPlaceholder = link.href === "#";
@@ -758,12 +870,12 @@ function renderPublications(items) {
     return `
       <article class="timeline-item reveal">
         <div class="item-top">
-          <span class="item-index">${String(index + 1).padStart(2, "0")}</span>
           <h3 class="paper-title">${escapeHtml(item.title)}</h3>
         </div>
         <p class="paper-type">${escapeHtml(item.kind)}</p>
         <p class="item-sub">${escapeHtml(item.venue)}</p>
         <p class="item-note">${escapeHtml(item.role)}</p>
+        ${item.description ? `<p class="paper-description">${escapeHtml(item.description)}</p>` : ""}
         ${links ? `<div class="paper-links">${links}</div>` : ""}
       </article>
     `;

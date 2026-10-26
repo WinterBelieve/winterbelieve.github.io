@@ -1,0 +1,54 @@
+{
+  "purpose": "Public academic website modality examples; not the website author's study data or model results.",
+  "generated_content": false,
+  "retrieved_on": "2026-10-26",
+  "examples": [
+    {
+      "file": "upenn-gbm-00002-flair.png",
+      "dataset": "UPENN-GBM",
+      "subject": "UPENN-GBM-00002",
+      "source": "https://www.cancerimagingarchive.net/collection/upenn-gbm/",
+      "doi": "https://doi.org/10.7937/TCIA.709X-DN49",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "series_instance_uid": "1.3.6.1.4.1.14519.5.2.1.74959210626421264963078150067043317963",
+      "sop_instance_uid": "1.3.6.1.4.1.14519.5.2.1.181412498919133084808519110325856323769",
+      "series_description": "t2_Flair_axial: Processed_CaPTk",
+      "slice_index_sorted_by_patient_z_zero_based": 35,
+      "transformation": "One axial DICOM slice; linear grayscale display mapping using whole-series nonzero intensity percentiles 1 and 99.5; no anatomy editing, no resampling, no AI generation, no segmentation overlay.",
+      "display_range": [
+        7,
+        604
+      ],
+      "dimensions": [
+        192,
+        256
+      ],
+      "raw_archive_sha256": "caa77deaf31af9d640aaffd2afaad97590e9383c18398541ba9861fe492a45c0",
+      "export_sha256": "fa246f84e98df518c1f1aefa9a027186289dec0d8d5c0a07135b9af8544a3e8e"
+    },
+    {
+      "file": "ev9v-plax-example.jpg",
+      "dataset": "EV9V (Echocardiographic View 9 Varieties)",
+      "source": "https://huggingface.co/datasets/bgx666/EV9V",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source_license": "https://huggingface.co/datasets/bgx666/EV9V/blob/main/README.md",
+      "archive_url": "https://huggingface.co/datasets/bgx666/EV9V/resolve/main/Images.tar",
+      "archive_member": "Images/2022-03-24_09-00-40_320x240_0/0.jpg",
+      "archive_member_offset": 1536,
+      "archive_member_length": 20128,
+      "sampling": "Only the first 65536 archive bytes were retrieved by an HTTP range request. One JPEG frame was extracted; the full dataset was not downloaded.",
+      "view": "PLHLA (parasternal long-axis view), as labelled in train_labeled.txt",
+      "frame_index": 0,
+      "patient_identification": "No patient identity inferred. Source describes all videos as anonymized. This is one frame from one examination video.",
+      "transformation": "Source JPEG copied byte-for-byte; no cropping, resampling, grayscale remapping, retouching or generated pixels. Scanner labels and calipers are from the source.",
+      "dimensions": [
+        320,
+        240
+      ],
+      "source_readme_sha256": "6c3538a926ff64d95f0315ae869363ae5449ec814afcee51ce502e4853efd01a",
+      "export_sha256": "3ed46a9649945fcf8ff9ecee4393b8e19bd147a2bdfc1b1f01a59737739d3c7d"
+    }
+  ]
+}
